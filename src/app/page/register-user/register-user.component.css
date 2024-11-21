@@ -1,0 +1,95 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: flex-start; /* Alinha no topo verticalmente */
+  height: 100vh;
+  padding-top: 5vh; /* Adiciona um espaçamento no topo proporcional ao tamanho da janela */
+}
+
+.card-flex {
+  background-color: #88b8b0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 90%; /* O card ocupa 90% da largura da tela, garantindo que ele se ajuste ao tamanho */
+  max-width: 500px; /* Define uma largura máxima para não expandir demais em telas grandes */
+  box-sizing: border-box;
+  text-align: center; /* Centraliza todo o conteúdo de texto dentro do card */
+}
+
+/* Para garantir que os campos de entrada também sejam responsivos */
+.input-group {
+  display: flex;
+  flex-direction: column; /* Para que os inputs fiquem empilhados em telas menores */
+  align-items: center; /* Centraliza os inputs horizontalmente */
+  gap: 10px;
+  margin: 20px auto; /* Centraliza a div com os inputs no card */
+}
+
+.input-group input {
+  width: 60%; /* Faz com que os inputs ocupem toda a largura do card */
+  padding: 10px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+
+/* Para alterar as cores dos botões de PrimeNG, é necessário usar ::ng-deep */
+::ng-deep .save-button {
+  background-color: #28a745 !important; /* Cor de fundo verde */
+  color: white !important; /* Cor do texto */
+  border: none !important; /* Remove a borda */
+}
+
+/* Adiciona efeito de hover para o botão Save */
+::ng-deep .save-button:hover {
+  background-color: #218838 !important; /* Cor verde mais escura ao passar o mouse */
+}
+
+/* Estilos para o botão Cancel */
+::ng-deep .cancel-button {
+  background-color: #dc3545 !important; /* Cor de fundo vermelha */
+  color: white !important; /* Cor do texto */
+  border: none !important; /* Remove a borda */
+}
+
+/* Adiciona efeito de hover para o botão Cancel */
+::ng-deep .cancel-button:hover {
+  background-color: #c82333 !important; /* Cor vermelha mais escura ao passar o mouse */
+}
+
+/* Para os botões serem responsivos e terem espaçamento */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+p-button {
+  flex: 1; /* Faz com que os botões se ajustem proporcionalmente */
+}
+
+
+
+
+/* Media queries para ajustes em telas maiores */
+@media (min-width: 600px) {
+  .card-flex {
+    width: 70%; /* Para telas maiores, o card ocupará menos espaço */
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-flex {
+    width: 50%; /* Para telas ainda maiores, o card ocupará 50% da largura */
+  }
+}

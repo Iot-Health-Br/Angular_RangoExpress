@@ -1,4 +1,15 @@
-<div class="card flex justify-content-center">
-  <p-toast />
-  <p-button (onClick)="show()" label="Show" />
+<div class="container">
+  <div class="card-flex">
+    <h1>Login</h1>
+    <div class="input-group">
+      <input type="text" pInputText placeholder="Login" [(ngModel)]="username" />
+      <p-password [(ngModel)]="password" [toggleMask]="true" />
+    </div>
+    <div class="button-group">
+      <p-toast />
+      <p-button label="Save" icon="pi pi-check" styleClass="save-button" (onClick)="onLogin()"></p-button>
+      <p-button label="Cancel" icon="pi pi-times" styleClass="cancel-button" (onClick)="clearForm()"></p-button>
+      <p-button label="Cadastrar" icon="pi-user-plus" styleClass="cadastrar-button" (onClick)="registerUser()"></p-button>
+    </div>
+  </div>
 </div>
