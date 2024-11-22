@@ -2,13 +2,25 @@
   <div class="card-flex">
     <h1>Register View</h1>
     <div class="input-group">
-      <input type="text" pInputText placeholder="username" [(ngModel)]="username" />
       <input type="text" pInputText placeholder="nome" [(ngModel)]="nome" />
+      <input type="text" pInputText placeholder="cpf" [(ngModel)]="cpf" />
+      <input type="text" pInputText placeholder="telefone" [(ngModel)]="telefone" />
+      <input type="text" pInputText placeholder="email" [(ngModel)]="email" />
+      <input type="text" pInputText placeholder="genero" [(ngModel)]="genero" />
+      <input type="text" pInputText placeholder="endereço" [(ngModel)]="endereco" />
+      <div class="flex-auto">
+        <p-calendar
+          [(ngModel)]="nascimento"
+          [iconDisplay]="'input'"
+          [showIcon]="true"
+          inputId="icondisplay" />
+      </div>
       <p-password [(ngModel)]="password" [toggleMask]="true" />
       <p-password [(ngModel)]="confirmPassword" [toggleMask]="true" />
     </div>
     <div class="button-group">
       <p-toast />
+      <p-button label="Voltar" icon="pi pi-arrow-left" styleClass="return-button" (onClick)="return()"></p-button>
       <p-button label="Save" icon="pi pi-check" styleClass="save-button" (onClick)="Save()"></p-button>
       <p-button label="Cancel" icon="pi pi-times" styleClass="cancel-button" (onClick)="clearForm()"></p-button>
     </div>
