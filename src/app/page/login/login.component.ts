@@ -6,6 +6,9 @@ import {MessageService} from "primeng/api";
 import {FormsModule} from "@angular/forms";
 import {PasswordModule} from "primeng/password";
 import {InputTextModule} from "primeng/inputtext";
+import {Router} from "@angular/router";
+import {AuthServiceService} from "../../service/auth.service";
+import {provideHttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-login',
@@ -23,19 +26,42 @@ import {InputTextModule} from "primeng/inputtext";
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  password: String ='';
-  username: any;
-  constructor(private messageService: MessageService) {}
+  password: string ='';
+  username: string ='';
+  constructor(private router: Router, private authService: AuthServiceService ,private messageService: MessageService) {}
 
   registerUser() {
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
+    this.router.navigate(['/register-user']);
   }
 
   onLogin() {
-
+    if (this.username && this.password) {
+      console.log("Angular Component:",this.username,this.password);
+      this.authService.login(this.username, this.password).subscribe({
+        next: (response) => {
+          if (response.authenticated) {
+            // Salvando os dados no localStorage
+            localStorage.setItem('userId', response.userId?.toString() || '');
+            localStorage.setItem('fullName', response.fullName || '');
+            // Verificando os dados no localStorage
+            console.log('userId:', localStorage.getItem('userId'));
+            console.log('fullName:', localStorage.getItem('fullName'));
+            this.messageService.add({ severity: 'success', summary: 'Success', detail: response.message,life: 10000 });}
+          else {
+            this.messageService.add({ severity: 'error', summary: 'Error', detail: response.message,life: 10000 });}
+        },
+        error: (error) => {
+          this.messageService.add({severity: 'error', summary: 'Erro', detail: 'Erro ao tentar fazer login. Por favor, tente novamente.',life: 10000});}
+      });
+    }
+    else {
+      this.messageService.add({severity: 'warn', summary: 'Atenção', detail: 'Por favor, preencha usuário e senha.',life: 10000});}
   }
 
+  // Método para limpar os campos do formulário
   clearForm() {
-
+    this.username = '';
+    this.password = '';
+    this.messageService.add({severity: 'warn', summary: 'Atenção', detail: 'Login Cancelado',life: 10000});
   }
 }
