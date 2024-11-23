@@ -6,6 +6,7 @@
         [(selection)]="selectedProducts"
         dataKey="nome"
         selectionMode="multiple"
+        (selectionChange)="onSelectionChange($event)"
         [tableStyle]="{'min-width': '50rem'}">
         <ng-template pTemplate="header">
           <tr>
@@ -21,7 +22,7 @@
         <ng-template pTemplate="body" let-product>
           <tr>
             <td>
-              <p-tableCheckbox [value]="product" (onChange)="calcularTotal()"></p-tableCheckbox>
+              <p-tableCheckbox [value]="product"></p-tableCheckbox>
             </td>
             <td>{{ product.nome }}</td>
             <td>{{ product.valor | currency: 'BRL' }}</td>
@@ -37,7 +38,8 @@
                 type="number"
                 [(ngModel)]="product.quantidade"
                 (ngModelChange)="calcularTotal()"
-                min="1"
+                [min]="selectedProducts.includes(product) ? 1 : 0"
+                [disabled]="!selectedProducts.includes(product)"
                 class="w-16 p-2 border rounded">
             </td>
           </tr>
