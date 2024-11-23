@@ -1,0 +1,9 @@
+/* place-order.component.css */
+:host ::ng-deep .p-panel {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.list-none {
+  list-style: none;
+}
