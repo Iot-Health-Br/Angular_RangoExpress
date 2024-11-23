@@ -6,9 +6,21 @@ import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { MessageService } from "primeng/api";
 import { PedidoService } from "../../service/pedido.service";
-import { Product } from "../../../interface/product";
+import { Product } from "../../interface/product";
 import { ToastModule } from "primeng/toast";
 import { Button } from "primeng/button";
+
+interface Pedido {
+  itens: {
+    nome: string;
+    ingredientes: string[];
+    quantidade: number;
+    valor: number;
+  }[];
+  totalPedido: number;
+  dataPedido: string;
+  status: string;
+}
 
 @Component({
   selector: 'app-place-order',
@@ -31,7 +43,7 @@ export class PlaceOrderComponent implements OnInit {
   selectedProducts: Product[] = [];
   totalPedido: number = 0;
 
-  constructor(private pedidoService: PedidoService) {}
+  constructor(private pedidoService: PedidoService,private messageService: MessageService) {}
 
   ngOnInit() {
     this.pedidoService.getPratosDoDia().subscribe({
@@ -72,20 +84,51 @@ export class PlaceOrderComponent implements OnInit {
   }
 
   SalvarPedido() {
-    const pedidos = this.selectedProducts
-      .filter(product => product.quantidade > 0)
-      .map(product => ({
-        nome: product.nome,
-        quantidade: product.quantidade,
-        valor: product.valor
-      }));
-
-    if (pedidos.length === 0) {
-      console.warn('Nenhum produto selecionado!');
+    // Verifica se há produtos selecionados
+    if (this.selectedProducts.length === 0 || !this.selectedProducts.some(p => p.quantidade > 0)) {
+      this.messageService.add({
+        severity: 'warn',
+        summary: 'Atenção',
+        detail: 'Selecione pelo menos um produto e defina a quantidade!'
+      });
       return;
     }
 
-    console.log('Pedidos a serem salvos:', pedidos);
+    // Cria o objeto pedido no formato especificado
+    const pedido: Pedido = {
+      itens: this.selectedProducts
+        .filter(product => product.quantidade > 0)
+        .map(product => ({
+          nome: product.nome,
+          ingredientes: product.ingredientes || [],
+          quantidade: product.quantidade,
+          valor: product.valor
+        })),
+      totalPedido: this.totalPedido,
+      dataPedido: new Date().toISOString(),
+      status: "Em preparação"
+    };
+
+    console.log("Enviando para Service: ", pedido);
+    // Envia o pedido para o serviço
+    this.pedidoService.salvarPedido(pedido).subscribe({
+      next: (response) => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Sucesso',
+          detail: 'Pedido realizado com sucesso!'
+        });
+        this.clearForm();
+      },
+      error: (error) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Erro',
+          detail: 'Erro ao salvar o pedido. Tente novamente.'
+        });
+        console.error('Erro ao salvar pedido:', error);
+      }
+    });
   }
 
   clearForm() {
