@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Product} from "../../interface/product";
+import {Product} from "../interface/product";
 
 @Injectable({
   providedIn: 'root'
@@ -13,5 +13,8 @@ export class PedidoService {
 
   getPratosDoDia(): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.apiUrl}/hoje`);
+  }
+  salvarPedido(pedido: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/pedidos`, pedido);
   }
 }
