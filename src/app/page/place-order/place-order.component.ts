@@ -29,7 +29,7 @@ import { Button } from "primeng/button";
 export class PlaceOrderComponent implements OnInit {
   products: Product[] = [];
   selectedProducts: Product[] = [];
-  totalPedido: number = 0; // Armazena o total do pedido
+  totalPedido: number = 0;
 
   constructor(private pedidoService: PedidoService) {}
 
@@ -38,7 +38,7 @@ export class PlaceOrderComponent implements OnInit {
       next: (data) => {
         this.products = data.map(product => ({
           ...product,
-          quantidade: 0 // Define uma propriedade quantidade no objeto
+          quantidade: 0
         }));
       },
       error: (error) => {
@@ -47,8 +47,25 @@ export class PlaceOrderComponent implements OnInit {
     });
   }
 
+  onSelectionChange(selectedItems: Product[]) {
+    // Primeiro, zera a quantidade dos produtos que foram desmarcados
+    this.products.forEach(product => {
+      if (!selectedItems.includes(product)) {
+        product.quantidade = 0;
+      }
+    });
+
+    // Depois, garante que os produtos selecionados tenham quantidade mínima de 1
+    selectedItems.forEach(product => {
+      if (product.quantidade === 0) {
+        product.quantidade = 1;
+      }
+    });
+
+    this.calcularTotal();
+  }
+
   calcularTotal() {
-    // Calcula o total com base nos produtos selecionados
     this.totalPedido = this.selectedProducts.reduce((total, product) => {
       return total + (product.valor * product.quantidade);
     }, 0);
@@ -69,10 +86,12 @@ export class PlaceOrderComponent implements OnInit {
     }
 
     console.log('Pedidos a serem salvos:', pedidos);
-    // Aqui você pode enviar os pedidos para o backend
   }
 
   clearForm() {
+    this.products.forEach(product => {
+      product.quantidade = 0;
+    });
     this.selectedProducts = [];
     this.totalPedido = 0;
   }

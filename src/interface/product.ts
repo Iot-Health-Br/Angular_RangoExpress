@@ -3,4 +3,5 @@ export interface Product {
   nome: string;
   valor: number;
   ingredientes: string[];
+  subtotal: number;
 }
