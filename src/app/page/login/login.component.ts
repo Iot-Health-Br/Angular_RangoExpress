@@ -8,7 +8,6 @@ import {PasswordModule} from "primeng/password";
 import {InputTextModule} from "primeng/inputtext";
 import {Router} from "@angular/router";
 import {AuthServiceService} from "../../service/auth.service";
-import {provideHttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-login',
@@ -41,8 +40,8 @@ export class LoginComponent {
         next: (response) => {
           if (response.authenticated) {
             // Salvando os dados no localStorage
-            //localStorage.setItem('userId', response.userId?.toString() || '');
-            //localStorage.setItem('fullName', response.fullName || '');
+            localStorage.setItem('userId', response.userId?.toString() || '');
+            localStorage.setItem('fullName', response.fullName || '');
             // Verificando os dados no localStorage
             console.log('userId:', localStorage.getItem('userId'));
             console.log('fullName:', localStorage.getItem('fullName'));

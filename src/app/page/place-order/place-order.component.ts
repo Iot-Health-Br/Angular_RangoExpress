@@ -9,18 +9,8 @@ import { PedidoService } from "../../service/pedido.service";
 import { Product } from "../../interface/product";
 import { ToastModule } from "primeng/toast";
 import { Button } from "primeng/button";
+import {Pedido} from "../../interface/pedido";
 
-interface Pedido {
-  itens: {
-    nome: string;
-    ingredientes: string[];
-    quantidade: number;
-    valor: number;
-  }[];
-  totalPedido: number;
-  dataPedido: string;
-  status: string;
-}
 
 @Component({
   selector: 'app-place-order',
@@ -106,27 +96,21 @@ export class PlaceOrderComponent implements OnInit {
         })),
       totalPedido: this.totalPedido,
       dataPedido: new Date().toISOString(),
-      status: "Em preparação"
+      status: "NOVO"
     };
 
-    console.log("Enviando para Service: ", pedido);
+    console.log("Component for Service: ", pedido);
     // Envia o pedido para o serviço
     this.pedidoService.salvarPedido(pedido).subscribe({
       next: (response) => {
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Sucesso',
-          detail: 'Pedido realizado com sucesso!'
-        });
+        this.messageService.add({severity:'success', summary:'Sucesso', detail: response, life: 10000});
+        console.log('Pedido salvo: ', response);
         this.clearForm();
       },
       error: (error) => {
-        this.messageService.add({
-          severity: 'error',
-          summary: 'Erro',
-          detail: 'Erro ao salvar o pedido. Tente novamente.'
-        });
-        console.error('Erro ao salvar pedido:', error);
+        const errorMessage = error.error;
+        this.messageService.add({severity:'error', summary:'Erro', detail: errorMessage, life: 10000 });
+        console.error('Erro ao salvar o pedido', error);
       }
     });
   }
