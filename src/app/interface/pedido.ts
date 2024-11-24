@@ -1,4 +1,4 @@
-interface Pedido {
+export interface Pedido {
   itens: {
     nome: string;
     ingredientes: string[];
