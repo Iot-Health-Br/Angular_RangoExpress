@@ -33,6 +33,12 @@ export class PlaceOrderComponent implements OnInit {
   selectedProducts: Product[] = [];
   totalPedido: number = 0;
 
+  idUsuario: number = Number(localStorage.getItem('userId')) || 0;
+  nomeUsuario: string = localStorage.getItem('fullName') || '';
+  endereco: string = localStorage.getItem('endereço') || '';
+  latitude: string = localStorage.getItem('latitude') || '';
+  longitude: string = localStorage.getItem('longitude') || '';
+
   constructor(private pedidoService: PedidoService,private messageService: MessageService) {}
 
   ngOnInit() {
@@ -92,8 +98,13 @@ export class PlaceOrderComponent implements OnInit {
           nome: product.nome,
           ingredientes: product.ingredientes || [],
           quantidade: product.quantidade,
-          valor: product.valor
+          valor: product.valor,
         })),
+      idUsuario: this.idUsuario,
+      nomeUsuario: this.nomeUsuario,
+      endereco: this.endereco,
+      latitude: this.latitude,
+      longitude: this.longitude,
       totalPedido: this.totalPedido,
       dataPedido: new Date().toISOString(),
       status: "NOVO"

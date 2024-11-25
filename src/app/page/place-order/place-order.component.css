@@ -1,9 +1,31 @@
-/* place-order.component.css */
+/* list-order.component.css */
 :host ::ng-deep .p-panel {
   width: 100%;
   max-width: 1200px;
+  margin: 1rem;
 }
 
-.list-none {
-  list-style: none;
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+  padding: 0.75rem;
+  vertical-align: top;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+  padding: 0.75rem;
+  font-weight: 600;
+}
+
+:host ::ng-deep .p-panel .p-panel-header {
+  background: #f8f9fa;
+  padding: 1rem;
+}
+
+:host ::ng-deep .p-button {
+  margin-right: 0.5rem;
 }
