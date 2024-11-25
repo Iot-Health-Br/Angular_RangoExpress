@@ -8,20 +8,32 @@ html, body {
 
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center; /* Centraliza horizontalmente */
-  align-items: flex-start; /* Alinha no topo verticalmente */
+  align-items: center; /* Alinha no topo verticalmente */
   height: 100vh;
   padding-top: 5vh; /* Adiciona um espaçamento no topo proporcional ao tamanho da janela */
 }
 
+.logo{
+  margin-top: 1%;
+  display:flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 50%;
+  padding-bottom: 5vh;
+}
+
 .card-flex {
-  background-color: #88b8b0;
+  background-color: darkorange;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   width: 90%; /* O card ocupa 90% da largura da tela, garantindo que ele se ajuste ao tamanho */
   max-width: 500px; /* Define uma largura máxima para não expandir demais em telas grandes */
   box-sizing: border-box;
+  color: white;
   text-align: center; /* Centraliza todo o conteúdo de texto dentro do card */
 }
 
@@ -44,9 +56,10 @@ html, body {
 
 /* Para alterar as cores dos botões de PrimeNG, é necessário usar ::ng-deep */
 ::ng-deep .save-button {
-  background-color: #28a745 !important; /* Cor de fundo verde */
-  color: white !important; /* Cor do texto */
+  background-color: #0476f8 !important; /* Cor de fundo verde */
+  color: greenyellow !important; /* Cor do texto */
   border: none !important; /* Remove a borda */
+  ;
 }
 /* Adiciona efeito de hover para o botão Save */
 ::ng-deep .save-button:hover {
@@ -55,8 +68,8 @@ html, body {
 
 /* Estilos para o botão Cancel */
 ::ng-deep .cancel-button {
-  background-color: #dc3545 !important; /* Cor de fundo vermelha */
-  color: white !important; /* Cor do texto */
+  background-color: #0476f8 !important; /* Cor de fundo vermelha */
+  color: red !important; /* Cor do texto */
   border: none !important; /* Remove a borda */
 }
 /* Adiciona efeito de hover para o botão Cancel */
@@ -67,7 +80,7 @@ html, body {
 /* Estilos para o botão Cadastrar */
 ::ng-deep .cadastrar-button {
   background-color: #0476f8 !important; /* Cor de fundo vermelha */
-  color: white !important; /* Cor do texto */
+  color: yellow !important; /* Cor do texto */
   border: none !important; /* Remove a borda */
 }
 /* Adiciona efeito de hover para o botão Cadastrar */
@@ -80,8 +93,7 @@ html, body {
 .button-group {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
-  margin-top: 20px;
+
 }
 
 p-button {

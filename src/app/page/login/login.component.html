@@ -1,4 +1,5 @@
 <div class="container">
+  <img src="https://quatrorodas.abril.com.br/wp-content/uploads/2020/11/lamborghini-huracan-sto-official-1-e1605742879930.jpg?quality=70&strip=info&crop=1&resize=1080,565" class="logo">
   <div class="card-flex">
     <h1>Login</h1>
     <div class="input-group">
@@ -7,8 +8,8 @@
     </div>
     <div class="button-group">
       <p-toast />
+      <p-button label="Login" icon="pi pi-check" styleClass="save-button" (onClick)="onLogin()"></p-button>
       <p-button label="Cadastrar" icon="pi pi-user-plus" styleClass="cadastrar-button" (onClick)="registerUser()"></p-button>
-      <p-button label="Save" icon="pi pi-check" styleClass="save-button" (onClick)="onLogin()"></p-button>
       <p-button label="Cancel" icon="pi pi-times" styleClass="cancel-button" (onClick)="clearForm()"></p-button>
     </div>
   </div>
