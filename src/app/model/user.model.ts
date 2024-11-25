@@ -7,6 +7,8 @@ export interface User {
   telefone: string;
   email: string;
   endereco: string;
+  latitude: string;
+  longitude: string;
   password: string;
   roles: string[];
 }
