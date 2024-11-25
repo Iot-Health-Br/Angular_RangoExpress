@@ -5,4 +5,7 @@ export interface LoginResponse {
   cpf: string | null;
   fullName: string;
   roles: string[] | null;
+  endereco: string;
+  latitude: string;
+  longitude: string;
 }

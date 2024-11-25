@@ -42,9 +42,15 @@ export class LoginComponent {
             // Salvando os dados no localStorage
             localStorage.setItem('userId', response.userId?.toString() || '');
             localStorage.setItem('fullName', response.fullName || '');
+            localStorage.setItem('endereço',response.endereco || '');
+            localStorage.setItem('latitude',response.latitude || '');
+            localStorage.setItem('longitude',response.longitude || '');
             // Verificando os dados no localStorage
             console.log('userId:', localStorage.getItem('userId'));
             console.log('fullName:', localStorage.getItem('fullName'));
+            console.log('endereço:', localStorage.getItem('endereço'));
+            console.log('latitude:', localStorage.getItem('latitude'));
+            console.log('longitude:', localStorage.getItem('longitude'));
             this.messageService.add({ severity: 'success', summary: 'Success', detail: response.message,life: 10000 });}
           else {
             this.messageService.add({ severity: 'error', summary: 'Error', detail: response.message,life: 10000 });}

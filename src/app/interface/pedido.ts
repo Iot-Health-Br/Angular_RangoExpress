@@ -5,6 +5,11 @@ export interface Pedido {
     quantidade: number;
     valor: number;
   }[];
+  idUsuario: number;
+  nomeUsuario: string;
+  endereco: string;
+  latitude: string;
+  longitude: string;
   totalPedido: number;
   dataPedido: string;
   status: string;
