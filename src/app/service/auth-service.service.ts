@@ -40,7 +40,11 @@ export class AuthServiceService {
 
             this.setAuthState(true, isUser, isAdmin, isManager);
             this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: response.message, life: 5000 });
-            this.router.navigate(['/home']);
+            if(isUser){
+              this.router.navigate(['/home']);
+            }else{
+              this.router.navigate(['/home-adm']);
+            }
           } else {
             this.messageService.add({ severity: 'error', summary: 'Erro', detail: response.message, life: 5000 });
           }

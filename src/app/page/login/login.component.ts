@@ -7,7 +7,8 @@ import {FormsModule} from "@angular/forms";
 import {PasswordModule} from "primeng/password";
 import {InputTextModule} from "primeng/inputtext";
 import {Router} from "@angular/router";
-import {AuthServiceService} from "../../service/auth.service";
+import {AuthServiceService} from "../../service/auth-service.service";
+import {InputMaskModule} from "primeng/inputmask";
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ import {AuthServiceService} from "../../service/auth.service";
     RippleModule,
     FormsModule,
     PasswordModule,
-    InputTextModule
+    InputTextModule,
+    InputMaskModule
   ],
   providers: [MessageService],
   templateUrl: './login.component.html',
@@ -27,7 +29,7 @@ import {AuthServiceService} from "../../service/auth.service";
 export class LoginComponent {
   password: string ='';
   username: string ='';
-  constructor(private router: Router, private authService: AuthServiceService ,private messageService: MessageService) {}
+  constructor(private router: Router, private authService: AuthServiceService , private messageService: MessageService) {}
 
   registerUser() {
     this.router.navigate(['/register-user']);
