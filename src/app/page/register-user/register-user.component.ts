@@ -33,7 +33,7 @@ export class RegisterUserComponent {
   nome: string ='';
   cpf: string ='';
   genero: string ='';
-  nascimento: Date | undefined;
+  nascimento: string='' ;
   telefone: string ='';
   email: string ='';
   endereco: string ='';
@@ -41,7 +41,6 @@ export class RegisterUserComponent {
   longitude: string ='';
   password: string ='';
   confirmPassword: string ='';
-  value: any;
 
   constructor(private authService: AuthServiceService, private router: Router, private messageService: MessageService) {}
 

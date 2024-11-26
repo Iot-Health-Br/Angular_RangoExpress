@@ -3,7 +3,7 @@ export interface User {
   nome: string;
   cpf: string;
   genero: string;
-  nascimento: Date | undefined;
+  nascimento: string;
   telefone: string;
   email: string;
   endereco: string;
