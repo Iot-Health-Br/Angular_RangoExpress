@@ -8,7 +8,9 @@ import {MessageService} from "primeng/api";
 import {Router} from "@angular/router";
 import {CalendarModule} from "primeng/calendar";
 import {User} from "../../model/user.model";
-import {AuthServiceService} from "../../service/auth.service";
+import {AuthServiceService} from "../../service/auth-service.service";
+import {InputMaskModule} from "primeng/inputmask";
+import {FloatLabelModule} from "primeng/floatlabel";
 
 @Component({
   selector: 'app-register-user',
@@ -19,7 +21,9 @@ import {AuthServiceService} from "../../service/auth.service";
     Button,
     FormsModule,
     InputTextModule,
-    CalendarModule
+    CalendarModule,
+    InputMaskModule,
+    FloatLabelModule
   ],
   providers:[MessageService],
   templateUrl: './register-user.component.html',
@@ -29,10 +33,12 @@ export class RegisterUserComponent {
   nome: string ='';
   cpf: string ='';
   genero: string ='';
-  nascimento: Date | undefined;
+  nascimento: string='' ;
   telefone: string ='';
   email: string ='';
   endereco: string ='';
+  latitude: string ='';
+  longitude: string ='';
   password: string ='';
   confirmPassword: string ='';
 
@@ -47,6 +53,8 @@ export class RegisterUserComponent {
       telefone: this.telefone,
       email: this.email,
       endereco: this.endereco,
+      latitude: this.latitude,
+      longitude: this.longitude,
       password: this.password,
       roles: [] //this.categoria
     };

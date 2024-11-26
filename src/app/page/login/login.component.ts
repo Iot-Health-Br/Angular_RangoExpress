@@ -7,8 +7,8 @@ import {FormsModule} from "@angular/forms";
 import {PasswordModule} from "primeng/password";
 import {InputTextModule} from "primeng/inputtext";
 import {Router} from "@angular/router";
-import {AuthServiceService} from "../../service/auth.service";
-import {provideHttpClient} from "@angular/common/http";
+import {AuthServiceService} from "../../service/auth-service.service";
+import {InputMaskModule} from "primeng/inputmask";
 
 @Component({
   selector: 'app-login',
@@ -19,7 +19,8 @@ import {provideHttpClient} from "@angular/common/http";
     RippleModule,
     FormsModule,
     PasswordModule,
-    InputTextModule
+    InputTextModule,
+    InputMaskModule
   ],
   providers: [MessageService],
   templateUrl: './login.component.html',
@@ -28,7 +29,7 @@ import {provideHttpClient} from "@angular/common/http";
 export class LoginComponent {
   password: string ='';
   username: string ='';
-  constructor(private router: Router, private authService: AuthServiceService ,private messageService: MessageService) {}
+  constructor(private router: Router, private authService: AuthServiceService , private messageService: MessageService) {}
 
   registerUser() {
     this.router.navigate(['/register-user']);
@@ -43,9 +44,15 @@ export class LoginComponent {
             // Salvando os dados no localStorage
             localStorage.setItem('userId', response.userId?.toString() || '');
             localStorage.setItem('fullName', response.fullName || '');
+            localStorage.setItem('endereço',response.endereco || '');
+            localStorage.setItem('latitude',response.latitude || '');
+            localStorage.setItem('longitude',response.longitude || '');
             // Verificando os dados no localStorage
             console.log('userId:', localStorage.getItem('userId'));
             console.log('fullName:', localStorage.getItem('fullName'));
+            console.log('endereço:', localStorage.getItem('endereço'));
+            console.log('latitude:', localStorage.getItem('latitude'));
+            console.log('longitude:', localStorage.getItem('longitude'));
             this.messageService.add({ severity: 'success', summary: 'Success', detail: response.message,life: 10000 });}
           else {
             this.messageService.add({ severity: 'error', summary: 'Error', detail: response.message,life: 10000 });}

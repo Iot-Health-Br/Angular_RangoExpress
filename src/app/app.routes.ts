@@ -12,17 +12,33 @@ import {ListOrderComponent} from "./page/list-order/list-order.component";
 import {ListDeliveryComponent} from "./page/list-delivery/list-delivery.component";
 import {ListAvaliationComponent} from "./page/list-avaliation/list-avaliation.component";
 import {AvaliationDeliveryComponent} from "./page/avaliation-delivery/avaliation-delivery.component";
+import {HomeAdmComponent} from "./page/home-adm/home-adm.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'register-user', component: RegisterUserComponent},
-  {path: 'register-adm', component: RegisterAdmComponent, canActivate: [managerGuard,adminGuard]},
+  {path: 'home', component: HomeComponent, canActivate: [authGuard]},
+
+  {path: 'home-adm', component: HomeAdmComponent, canActivate: [adminGuard]},
+  {path: 'home-adm', component: HomeAdmComponent, canActivate: [managerGuard]},
+
   {path: 'place-order', component: PlaceOrderComponent, canActivate: [authGuard]},
-  {path: 'list-user', component: ListUserComponent, canActivate: [managerGuard,adminGuard]},
-  {path: 'list-order', component: ListOrderComponent, canActivate: [managerGuard,adminGuard]},
-  {path: 'list-delivery', component: ListDeliveryComponent, canActivate: [managerGuard,adminGuard]},
-  {path: 'list-avaliation', component: ListAvaliationComponent, canActivate: [managerGuard,adminGuard]},
-  {path: 'home', component: HomeComponent, canActivate: [managerGuard,adminGuard]},
   {path: 'avaliation-delivery', component: AvaliationDeliveryComponent, canActivate: [authGuard]},
+
+  {path: 'register-adm', component: RegisterAdmComponent, canActivate: [adminGuard]},
+  {path: 'register-adm', component: RegisterAdmComponent, canActivate: [managerGuard]},
+
+  {path: 'list-user', component: ListUserComponent, canActivate: [adminGuard]},
+  {path: 'list-user', component: ListUserComponent, canActivate: [managerGuard]},
+
+  {path: 'list-order', component: ListOrderComponent, canActivate: [adminGuard]},
+  {path: 'list-order', component: ListOrderComponent, canActivate: [managerGuard]},
+
+  {path: 'list-delivery', component: ListDeliveryComponent, canActivate: [adminGuard]},
+  {path: 'list-delivery', component: ListDeliveryComponent, canActivate: [managerGuard]},
+
+  {path: 'list-avaliation', component: ListAvaliationComponent, canActivate: [adminGuard]},
+  {path: 'list-avaliation', component: ListAvaliationComponent, canActivate: [managerGuard]},
+
 ];

@@ -3,18 +3,14 @@
     <h1>Register View</h1>
     <div class="input-group">
       <input type="text" pInputText placeholder="nome" [(ngModel)]="nome" />
-      <input type="text" pInputText placeholder="cpf" [(ngModel)]="cpf" />
-      <input type="text" pInputText placeholder="telefone" [(ngModel)]="telefone" />
+      <p-inputMask mask="999.999.999-99" [(ngModel)]="cpf" placeholder="999.999.999-99" />
+      <p-inputMask mask="(99) 9 9999-9999" [(ngModel)]="telefone" placeholder="(99) 9 9999-9999" />
       <input type="text" pInputText placeholder="email" [(ngModel)]="email" />
-      <input type="text" pInputText placeholder="genero" [(ngModel)]="genero" />
+      <input type="text" pInputText placeholder="gênero" [(ngModel)]="genero" />
       <input type="text" pInputText placeholder="endereço" [(ngModel)]="endereco" />
-      <div class="flex-auto">
-        <p-calendar
-          [(ngModel)]="nascimento"
-          [iconDisplay]="'input'"
-          [showIcon]="true"
-          inputId="icondisplay" />
-      </div>
+      <input type="text" pInputText placeholder="latitude" [(ngModel)]="latitude" />
+      <input type="text" pInputText placeholder="latitude" [(ngModel)]="longitude" />
+      <p-inputMask [(ngModel)]="nascimento" mask="99/99/9999" placeholder="99/99/9999" slotChar="dd/mm/yyyy" />
       <p-password [(ngModel)]="password" [toggleMask]="true" />
       <p-password [(ngModel)]="confirmPassword" [toggleMask]="true" />
     </div>
