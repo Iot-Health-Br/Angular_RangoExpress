@@ -47,6 +47,17 @@ html, body {
 }
 
 .input-group input {
+  background-color: orange;
+  border-radius: 25px;
+  width: 60%; /* Faz com que os inputs ocupem toda a largura do card */
+  padding: 10px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.p-inputtext {
+  background-color: orange;
+  border-radius: 25px;
   width: 60%; /* Faz com que os inputs ocupem toda a largura do card */
   padding: 10px;
   font-size: 1rem;

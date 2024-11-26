@@ -4,7 +4,8 @@
     <h1>Login</h1>
     <div class="input-group">
       <p-inputMask mask="999.999.999-99" [(ngModel)]="username" placeholder="999.999.999-99" />
-      <p-password [(ngModel)]="password" [toggleMask]="true" />
+      <input type="password" pInputText [(ngModel)]="password" placeholder = "Password"/>
+
     </div>
     <div class="button-group">
       <p-toast />
