@@ -1,7 +1,6 @@
 import {CanActivateFn, Router} from '@angular/router';
-
+import {AuthServiceService} from "../service/auth-service.service";
 import {inject} from "@angular/core";
-import {AuthServiceService} from "../service/auth.service";
 
 export const managerGuard: CanActivateFn = (route, state) => {
   const authService: AuthServiceService = inject(AuthServiceService);
@@ -12,7 +11,7 @@ export const managerGuard: CanActivateFn = (route, state) => {
       return true;
     } else {
       alert("Você não tem permissão")
-      router.navigate(['/dashboard']);
+      router.navigate(['/home-adm']);
       return false;
     }
   } else {

@@ -2,7 +2,7 @@
   <div class="card-flex">
     <h1>Login</h1>
     <div class="input-group">
-      <input type="text" pInputText placeholder="Login" [(ngModel)]="username" />
+      <p-inputMask mask="999.999.999-99" [(ngModel)]="username" placeholder="999.999.999-99" />
       <p-password [(ngModel)]="password" [toggleMask]="true" />
     </div>
     <div class="button-group">

@@ -8,7 +8,7 @@ import {MessageService} from "primeng/api";
 import {Router} from "@angular/router";
 import {CalendarModule} from "primeng/calendar";
 import {User} from "../../model/user.model";
-import {AuthServiceService} from "../../service/auth.service";
+import {AuthServiceService} from "../../service/auth-service.service";
 import {InputMaskModule} from "primeng/inputmask";
 import {FloatLabelModule} from "primeng/floatlabel";
 

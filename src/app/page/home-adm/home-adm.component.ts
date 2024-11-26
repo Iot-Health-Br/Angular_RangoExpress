@@ -1,24 +1,29 @@
 import {Component, OnInit} from '@angular/core';
-import {AvatarModule} from "primeng/avatar";
-import {ButtonModule} from "primeng/button";
-import {MenuItem, MessageService} from "primeng/api";
-import {MegaMenuModule} from "primeng/megamenu";
-import {CommonModule} from "@angular/common";
 import {MenubarModule} from "primeng/menubar";
+import {MegaMenuModule} from "primeng/megamenu";
+import {ButtonModule} from "primeng/button";
+import {CommonModule} from "@angular/common";
+import {AvatarModule} from "primeng/avatar";
+import {MenuItem, MessageService} from "primeng/api";
 import {Router} from "@angular/router";
 import {AuthServiceService} from "../../service/auth-service.service";
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-home-adm',
   standalone: true,
   imports: [
-    MegaMenuModule, ButtonModule, CommonModule, AvatarModule, MenubarModule
+    MenubarModule,
+    MegaMenuModule,
+    ButtonModule,
+    CommonModule,
+    AvatarModule,
+    MenubarModule
   ],
   providers:[MessageService],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  templateUrl: './home-adm.component.html',
+  styleUrl: './home-adm.component.css'
 })
-export class HomeComponent implements OnInit{
+export class HomeAdmComponent implements OnInit{
   items: MenuItem[] | undefined;
 
   constructor(private _router: Router, private _service: AuthServiceService, private messageService: MessageService) {
@@ -49,7 +54,12 @@ export class HomeComponent implements OnInit{
             command: () => this.listOrder()
           },
           {
-            label: 'Avaliar Pedidos',
+            label: 'Lista de Entregas',
+            icon: 'pi pi-clipboard',
+            command: () => this.avaliationDelivery()
+          },
+          {
+            label: 'Avaliação de Pedidos',
             icon: 'pi pi-clipboard',
             command: () => this.avaliationOrder()
           }
@@ -57,7 +67,24 @@ export class HomeComponent implements OnInit{
       },
       {
         label: 'Configurações',
-        icon: 'pi pi-cog'
+        icon: 'pi pi-cog',
+        items: [
+          {
+            label: 'Cadastrar Adm',
+            icon: 'pi pi-user-plus',
+            command: () => this.registerAdm()
+          },
+          {
+            label: 'Cadastrar User',
+            icon: 'pi pi-user',
+            command: () => this.registerUser()
+          },
+          {
+            label: 'Lista de Usuários',
+            icon: 'pi pi-address-book',
+            command: () => this.listUser()
+          }
+        ]
       },
       {
         label: 'Contact',
@@ -98,6 +125,22 @@ export class HomeComponent implements OnInit{
   }
 
   private avaliationOrder() {
+    this._router.navigate(['/avaliation-delivery']);
+  }
+
+  private registerAdm() {
+    this._router.navigate(['/register-adm']);
+  }
+
+  private registerUser() {
+    this._router.navigate(['/register-user']);
+  }
+
+  private listUser() {
+    this._router.navigate(['/list-user']);
+  }
+
+  private avaliationDelivery() {
     this._router.navigate(['/avaliation-delivery']);
   }
 }
