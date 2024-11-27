@@ -43,14 +43,12 @@ export class RegisterAdmComponent {
   longitude: string ='';
   password: string ='';
   confirmPassword: string ='';
-  selectedRole: string = '';
-  rolesOptions = [
-    { label: 'Usuário', value: 'USER' },
-    { label: 'Administrador', value: 'ADMIN' },
-    { label: 'Gerente', value: 'MANAGER' }
+  categoria: any[] = [
+    { key: "USER", label: 'Usuário' },
+    { key: "ADMIN", label: 'Administrador' },
+    { key: "MANAGER", label: 'Gerente' }
   ];
-  selectedNodes: any;
-  nodes: TreeNode[] | undefined;
+  selectedCategoria: any = null;
 
   constructor(private authService: AuthServiceService, private router: Router, private messageService: MessageService) {}
 
@@ -66,7 +64,7 @@ export class RegisterAdmComponent {
       latitude: this.latitude,
       longitude: this.longitude,
       password: this.password,
-      roles: [this.selectedRole] // Passa apenas o valor selecionado.
+      roles: [this.selectedCategoria ? this.selectedCategoria.key : '']
     };
 
     if (this.password !== this.confirmPassword) {
@@ -77,13 +75,23 @@ export class RegisterAdmComponent {
       this.authService.saveAdm(newUser).subscribe(
         (response) => {
           this.messageService.add({severity:'success', summary:'Sucesso', detail: response, life: 10000});
-          console.log('Pessoa salva com sucesso!', response);
-          this.clearForm();
+          console.log('Adm salvo com sucesso!', response);
+          this.nome = '';
+          this.cpf = '';
+          this.telefone = '';
+          this.email = '';
+          this.genero = '';
+          this.endereco = '';
+          this.latitude = '';
+          this.longitude = '';
+          this.nascimento = '';
+          this.password = '';
+          this.confirmPassword = '';
         },
         (error) => {
           const errorMessage = error.error;
           this.messageService.add({severity:'error', summary:'Erro', detail: errorMessage, life: 10000 });
-          console.error('Erro ao salvar a pessoa', error);
+          console.error('Erro ao salvar Adm', error);
         }
       );
     }
@@ -92,6 +100,16 @@ export class RegisterAdmComponent {
   clearForm() {
     this.nome = '';
     this.cpf = '';
+    this.telefone = '';
+    this.email = '';
+    this.genero = '';
+    this.endereco = '';
+    this.latitude = '';
+    this.longitude = '';
+    this.nascimento = '';
+    this.password = '';
+    this.confirmPassword = '';
+    this.messageService.add({severity: 'warn', summary: 'Atenção', detail: 'Cadastro Cancelado', life: 10000});
   }
 
   return() {
