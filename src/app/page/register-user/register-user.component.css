@@ -11,8 +11,10 @@ html, body {
   align-items: flex-start; /* Alinha no topo verticalmente */
   background-image: url("https://github.com/Iot-Health-Br/Angular_RangoExpress/blob/Luidy/src/imagens/Rango%20Express%20BackGround%2001.png?raw=true");
   background-size: cover;
-  width:auto;
-  height:auto;
+  background-position: center;
+  height: auto;
+  margin: 0;        /* Remove margens */
+  padding: 0;       /* Remove padding */
 }
 
 .card-flex {
