@@ -1,10 +1,9 @@
 <div class="container">
-  <img src="https://quatrorodas.abril.com.br/wp-content/uploads/2020/11/lamborghini-huracan-sto-official-1-e1605742879930.jpg?quality=70&strip=info&crop=1&resize=1080,565" class="logo">
   <div class="card-flex">
-    <h1>Login</h1>
+    <h1>L O G I N</h1>
     <div class="input-group">
-      <p-inputMask mask="999.999.999-99" [(ngModel)]="username" placeholder="999.999.999-99" />
-      <input type="password" pInputText [(ngModel)]="password" placeholder = "Password"/>
+      <p-inputMask styleClass="cpf-label" mask="999.999.999-99" [(ngModel)]="username" placeholder="999.999.999-99" />
+      <input type="password" pInputText [(ngModel)]="password" placeholder = "Senha"/>
 
     </div>
     <div class="button-group">
@@ -14,4 +13,5 @@
       <p-button label="Cancel" icon="pi pi-times" styleClass="cancel-button" (onClick)="clearForm()"></p-button>
     </div>
   </div>
+  <img src="https://github.com/Iot-Health-Br/Angular_RangoExpress/blob/Luidy/src/assets/Rangoo.png?raw=true" class="logo">
 </div>

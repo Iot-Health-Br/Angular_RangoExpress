@@ -16,18 +16,18 @@ html, body {
 }
 
 .logo{
-  margin-top: 1%;
+  margin-top: 5%;
   display:flex;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
-  height: 50%;
+  width: 40%;
+  height: 40%;
   padding-bottom: 5vh;
 }
 
 .card-flex {
   background-color: darkorange;
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   width: 90%; /* O card ocupa 90% da largura da tela, garantindo que ele se ajuste ao tamanho */
@@ -47,40 +47,46 @@ html, body {
 }
 
 .input-group input {
-  background-color: orange;
-  border-radius: 25px;
-  width: 60%; /* Faz com que os inputs ocupem toda a largura do card */
+  background-color: #DE7D38;
+  border-radius: 15px;
+  width: auto; /* Faz com que os inputs ocupem toda a largura do card */
   padding: 10px;
   font-size: 1rem;
   box-sizing: border-box;
+  color:white;
 }
 
-.p-inputtext {
-  background-color: orange;
-  border-radius: 25px;
-  width: 60%; /* Faz com que os inputs ocupem toda a largura do card */
+.input-group ::ng-deep .cpf-label {
+  width: auto;
   padding: 10px;
-  font-size: 1rem;
+  border-radius: 15px;
   box-sizing: border-box;
+  background-color: #DE7D38;
+  color:white;
+  text-align:center;
 }
 
+::ng-deep ::placeholder{
+  text-align: center;
+  color:lightgrey;
+}
 
 /* Para alterar as cores dos botões de PrimeNG, é necessário usar ::ng-deep */
 ::ng-deep .save-button {
-  background-color: #0476f8 !important; /* Cor de fundo verde */
-  color: greenyellow !important; /* Cor do texto */
+  background-color: #4965EA !important; /* Cor de fundo verde */
+  color: white !important; /* Cor do texto */
   border: none !important; /* Remove a borda */
   ;
 }
 /* Adiciona efeito de hover para o botão Save */
 ::ng-deep .save-button:hover {
-  background-color: #218838 !important; /* Cor verde mais escura ao passar o mouse */
+  background-color: #293B7F !important; /* Cor verde mais escura ao passar o mouse */
 }
 
 /* Estilos para o botão Cancel */
 ::ng-deep .cancel-button {
-  background-color: #0476f8 !important; /* Cor de fundo vermelha */
-  color: red !important; /* Cor do texto */
+  background-color: #dc3545 !important; /* Cor de fundo vermelha */
+  color: white !important; /* Cor do texto */
   border: none !important; /* Remove a borda */
 }
 /* Adiciona efeito de hover para o botão Cancel */
@@ -90,13 +96,13 @@ html, body {
 
 /* Estilos para o botão Cadastrar */
 ::ng-deep .cadastrar-button {
-  background-color: #0476f8 !important; /* Cor de fundo vermelha */
-  color: yellow !important; /* Cor do texto */
+  background-color: #4965EA !important; /* Cor de fundo vermelha */
+  color: white !important; /* Cor do texto */
   border: none !important; /* Remove a borda */
 }
 /* Adiciona efeito de hover para o botão Cadastrar */
 ::ng-deep .cadastrar-button:hover {
-  background-color: #0c4b91 !important; /* Cor vermelha mais escura ao passar o mouse */
+  background-color: #293B7F !important; /* Cor vermelha mais escura ao passar o mouse */
 }
 
 
