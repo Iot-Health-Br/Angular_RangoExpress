@@ -8,17 +8,19 @@
       <input type="text" pInputText placeholder="email" [(ngModel)]="email" />
       <input type="text" pInputText placeholder="gênero" [(ngModel)]="genero" />
       <input type="text" pInputText placeholder="endereço" [(ngModel)]="endereco" />
-      <input type="text" pInputText placeholder="latitude" [(ngModel)]="latitude" />
-      <input type="text" pInputText placeholder="latitude" [(ngModel)]="longitude" />
+      <p-inputMask mask="-99.999999" [(ngModel)]="latitude" placeholder="latitude" />
+      <p-inputMask mask="-99.999999" [(ngModel)]="longitude" placeholder="longitude" />
       <p-inputMask [(ngModel)]="nascimento" mask="99/99/9999" placeholder="99/99/9999" slotChar="dd/mm/yyyy" />
-      <div class="card flex justify-content-center">
+      <div class="combobox-categoria">
         <p-treeSelect
           class="md:w-20rem w-full"
           containerStyleClass="w-full"
-          [(ngModel)]="selectedNodes"
-          [options]="nodes"
-          [disabled]="true"
-          placeholder="TreeSelect" />
+          [(ngModel)]="selectedCategoria"
+          [options]="categoria"
+          placeholder="Selecione uma categoria"
+          selectionMode="single"
+          [metaKeySelection]="false">
+        </p-treeSelect>
       </div>
       <p-password [(ngModel)]="password" [toggleMask]="true" />
       <p-password [(ngModel)]="confirmPassword" [toggleMask]="true" />
