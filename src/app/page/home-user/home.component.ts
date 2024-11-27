@@ -7,12 +7,13 @@ import {CommonModule} from "@angular/common";
 import {MenubarModule} from "primeng/menubar";
 import {Router} from "@angular/router";
 import {AuthServiceService} from "../../service/auth-service.service";
+import {CardModule} from "primeng/card";
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    MegaMenuModule, ButtonModule, CommonModule, AvatarModule, MenubarModule
+    MegaMenuModule, ButtonModule, CommonModule, AvatarModule, MenubarModule, CardModule
   ],
   providers:[MessageService],
   templateUrl: './home.component.html',
