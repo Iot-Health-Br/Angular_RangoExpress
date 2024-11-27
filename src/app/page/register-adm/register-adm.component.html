@@ -1,1 +1,35 @@
-<p>register-adm works!</p>
+<div class="container">
+  <div class="card-flex">
+    <h1>Register View</h1>
+    <div class="input-group">
+      <input type="text" pInputText placeholder="nome" [(ngModel)]="nome" />
+      <p-inputMask mask="999.999.999-99" [(ngModel)]="cpf" placeholder="999.999.999-99" />
+      <p-inputMask mask="(99) 9 9999-9999" [(ngModel)]="telefone" placeholder="(99) 9 9999-9999" />
+      <input type="text" pInputText placeholder="email" [(ngModel)]="email" />
+      <input type="text" pInputText placeholder="gênero" [(ngModel)]="genero" />
+      <input type="text" pInputText placeholder="endereço" [(ngModel)]="endereco" />
+      <p-inputMask mask="-99.999999" [(ngModel)]="latitude" placeholder="latitude" />
+      <p-inputMask mask="-99.999999" [(ngModel)]="longitude" placeholder="longitude" />
+      <p-inputMask [(ngModel)]="nascimento" mask="99/99/9999" placeholder="99/99/9999" slotChar="dd/mm/yyyy" />
+      <div class="combobox-categoria">
+        <p-treeSelect
+          class="md:w-20rem w-full"
+          containerStyleClass="w-full"
+          [(ngModel)]="selectedCategoria"
+          [options]="categoria"
+          placeholder="Selecione uma categoria"
+          selectionMode="single"
+          [metaKeySelection]="false">
+        </p-treeSelect>
+      </div>
+      <p-password [(ngModel)]="password" [toggleMask]="true" />
+      <p-password [(ngModel)]="confirmPassword" [toggleMask]="true" />
+    </div>
+    <div class="button-group">
+      <p-toast />
+      <p-button label="Voltar" icon="pi pi-arrow-left" styleClass="return-button" (onClick)="return()"></p-button>
+      <p-button label="Save" icon="pi pi-check" styleClass="save-button" (onClick)="Save()"></p-button>
+      <p-button label="Cancel" icon="pi pi-times" styleClass="cancel-button" (onClick)="clearForm()"></p-button>
+    </div>
+  </div>
+</div>
