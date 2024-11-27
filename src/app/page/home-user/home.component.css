@@ -1,0 +1,17 @@
+.layout-wrapper {
+  background-image: url(https://github.com/Iot-Health-Br/Angular_RangoExpress/blob/master/src/imagens/Rango%20Express%20BackGround.jpeg?raw=true);
+  background-size: 1350px 550px;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  margin: 0;        /* Remove margens */
+  padding: 0;       /* Remove padding */
+  overflow: hidden; /* Remove scrollbar */
+}
+
+/* Adicione também no elemento body e html para garantir */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}

@@ -9,19 +9,21 @@ import {InputTextModule} from "primeng/inputtext";
 import {Router} from "@angular/router";
 import {AuthServiceService} from "../../service/auth-service.service";
 import {InputMaskModule} from "primeng/inputmask";
+import {MenubarModule} from "primeng/menubar";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [
-    ToastModule,
-    Button,
-    RippleModule,
-    FormsModule,
-    PasswordModule,
-    InputTextModule,
-    InputMaskModule
-  ],
+    imports: [
+        ToastModule,
+        Button,
+        RippleModule,
+        FormsModule,
+        PasswordModule,
+        InputTextModule,
+        InputMaskModule,
+        MenubarModule
+    ],
   providers: [MessageService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
