@@ -1,18 +1,18 @@
 <div class="container">
   <div class="card-flex">
-    <h1>Register View</h1>
+    <h1>C A D A S T R O</h1>
     <div class="input-group">
-      <input type="text" pInputText placeholder="nome" [(ngModel)]="nome" />
-      <p-inputMask mask="999.999.999-99" [(ngModel)]="cpf" placeholder="999.999.999-99" />
-      <p-inputMask mask="(99) 9 9999-9999" [(ngModel)]="telefone" placeholder="(99) 9 9999-9999" />
-      <input type="text" pInputText placeholder="email" [(ngModel)]="email" />
-      <input type="text" pInputText placeholder="gênero" [(ngModel)]="genero" />
-      <input type="text" pInputText placeholder="endereço" [(ngModel)]="endereco" />
-      <input type="text" pInputText placeholder="latitude" [(ngModel)]="latitude" />
-      <input type="text" pInputText placeholder="latitude" [(ngModel)]="longitude" />
-      <p-inputMask [(ngModel)]="nascimento" mask="99/99/9999" placeholder="99/99/9999" slotChar="dd/mm/yyyy" />
-      <p-password [(ngModel)]="password" [toggleMask]="true" />
-      <p-password [(ngModel)]="confirmPassword" [toggleMask]="true" />
+      <input type="text" pInputText placeholder="Nome" [(ngModel)]="nome" />
+      <p-inputMask styleClass="primelabels" mask="999.999.999-99" [(ngModel)]="cpf" placeholder="CPF" />
+      <p-inputMask styleClass="primelabels" mask="(99) 9 9999-9999" [(ngModel)]="telefone" placeholder="Telefone" />
+      <input type="text" pInputText placeholder="Email" [(ngModel)]="email" />
+      <input type="text" pInputText placeholder="Gênero" [(ngModel)]="genero" />
+      <input type="text" pInputText placeholder="Endereço" [(ngModel)]="endereco" />
+      <input type="text" pInputText placeholder="Latitude" [(ngModel)]="latitude" />
+      <input type="text" pInputText placeholder="Longitude" [(ngModel)]="longitude" />
+      <p-inputMask styleClass="primelabels" [(ngModel)]="nascimento" mask="99/99/9999" placeholder="Data De Nascimento" slotChar="dd/mm/yyyy" />
+      <p-password styleClass="p-password-input" [(ngModel)]="password" [toggleMask]="true" placeholder="Senha" />
+      <p-password styleClass="p-password-input" [(ngModel)]="confirmPassword" [toggleMask]="true" placeholder="Confirmar Senha" />
     </div>
     <div class="button-group">
       <p-toast />

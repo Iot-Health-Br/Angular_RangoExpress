@@ -1,17 +1,17 @@
-<div class="layout-wrapper">
 <div class="container">
   <div class="card-flex">
-    <h1>Login</h1>
+    <h1>L O G I N</h1>
     <div class="input-group">
-      <p-inputMask mask="999.999.999-99" [(ngModel)]="username" placeholder="999.999.999-99" />
-      <p-password [(ngModel)]="password" [toggleMask]="true" />
+      <p-inputMask styleClass="cpf-label" mask="999.999.999-99" [(ngModel)]="username" placeholder="999.999.999-99" />
+      <input type="password" pInputText [(ngModel)]="password" placeholder = "Senha"/>
+
     </div>
     <div class="button-group">
       <p-toast />
+      <p-button label="Login" icon="pi pi-check" styleClass="save-button" (onClick)="onLogin()"></p-button>
       <p-button label="Cadastrar" icon="pi pi-user-plus" styleClass="cadastrar-button" (onClick)="registerUser()"></p-button>
-      <p-button label="Save" icon="pi pi-check" styleClass="save-button" (onClick)="onLogin()"></p-button>
       <p-button label="Cancel" icon="pi pi-times" styleClass="cancel-button" (onClick)="clearForm()"></p-button>
     </div>
   </div>
-  </div>
+  <img src="https://github.com/Iot-Health-Br/Angular_RangoExpress/blob/Luidy/src/assets/Rangoo.png?raw=true" class="logo">
 </div>

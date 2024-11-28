@@ -58,7 +58,6 @@ export class RegisterUserComponent {
       password: this.password,
       roles: [] //this.categoria
     };
-
     if (this.password !== this.confirmPassword) {
       this.messageService.add({severity: 'warn', summary: 'Atenção', detail: 'As senhas são divirgentes!',life: 10000});
     }
@@ -82,6 +81,17 @@ export class RegisterUserComponent {
   clearForm() {
       this.nome = '';
       this.cpf = '';
+      this.endereco = '';
+      this.cpf = '';
+      this.telefone = '';
+      this.email = '';
+      this.genero = '';
+      this.endereco = '';
+      this.latitude = '';
+      this.longitude = '';
+      this.nascimento = '';
+      this.password = '';
+      this.confirmPassword = '';
   }
 
   return() {
