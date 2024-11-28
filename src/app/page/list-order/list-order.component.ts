@@ -40,7 +40,6 @@ export class ListOrderComponent implements OnInit {
     { key: "ENTREGUE", label: 'ENTREGUE' },
     { key: "CANCELADO", label: 'CANCELADO' }
   ];
-  selectedStatus: any = null;
 
   constructor(
     private pedidoService: PedidoService,
@@ -138,9 +137,5 @@ export class ListOrderComponent implements OnInit {
       summary: 'Info',
       detail: 'Seleção limpa'
     });
-  }
-
-  onSelectionChange(event: any) {
-    this.selectedPedidos = event;
   }
 }

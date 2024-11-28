@@ -2,20 +2,13 @@
   <div class="card-flex">
     <h1>User Details</h1>
 
-
-    <!-- Loading Spinner -->
-    <!--
     <div *ngIf="loading" class="card flex justify-content-center">
       <p-progressSpinner ariaLabel="loading" />
     </div>
-    -->
 
-
-    <!-- Error Message -->
-    <!--
     <div *ngIf="error" class="error-message">
       <p-message severity="error" [text]="error"></p-message>
-    </div> -->
+    </div>
 
     <div class="card-table" >
       <p-table class="user-table"
@@ -40,7 +33,7 @@
               <p-tableRadioButton [value]="product" />
             </td>
             <td>{{product.id}}</td>
-            <td>{{product.username}}</td>
+            <td>{{product.cpf}}</td>
             <td>{{product.nome}}</td>
             <td>{{product.roles}}</td>
           </tr>
