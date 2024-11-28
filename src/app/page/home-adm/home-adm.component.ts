@@ -56,12 +56,12 @@ export class HomeAdmComponent implements OnInit{
           {
             label: 'Lista de Entregas',
             icon: 'pi pi-clipboard',
-            command: () => this.avaliationDelivery()
+            command: () => this.listDelivery()
           },
           {
             label: 'Avaliação de Pedidos',
             icon: 'pi pi-clipboard',
-            command: () => this.avaliationOrder()
+            command: () => this.avaliationDelivery()
           }
         ]
       },
@@ -142,5 +142,9 @@ export class HomeAdmComponent implements OnInit{
 
   private avaliationDelivery() {
     this._router.navigate(['/avaliation-delivery']);
+  }
+
+  private listDelivery() {
+    this._router.navigate(['/list-delivery']);
   }
 }
