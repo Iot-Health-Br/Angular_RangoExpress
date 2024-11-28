@@ -32,6 +32,7 @@ export class PlaceOrderComponent implements OnInit {
   products: Product[] = [];
   selectedProducts: Product[] = [];
   totalPedido: number = 0;
+  idPedido: number =0;
 
   idUsuario: number = Number(localStorage.getItem('userId')) || 0;
   nomeUsuario: string = localStorage.getItem('fullName') || '';
@@ -100,6 +101,7 @@ export class PlaceOrderComponent implements OnInit {
           quantidade: product.quantidade,
           valor: product.valor,
         })),
+      idPedido: this.idPedido,
       idUsuario: this.idUsuario,
       nomeUsuario: this.nomeUsuario,
       endereco: this.endereco,
