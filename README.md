@@ -1,176 +1,195 @@
 
-
 ![WhatsApp Image 2024-11-25 at 10 52 07 PM (1)](https://github.com/user-attachments/assets/c1f6cf59-9475-402c-b19a-b9d4cd2416c1)
 
-# Rango Express 
 
-  O Rango Express é uma aplicação web para o gerenciamento eficiente de pedidos de marmitas. Ele centraliza o controle de cadastro de usuários, gerenciamento de pedidos, planejamento de rotas de entrega e controle financeiro.
+============================================================================================
+## 🍽️ RANGO EXPRESS ##
+
+Bem-vindo ao Rango Express, seu sistema para facilitar o gerenciamento de pedidos de marmitas!
+
+Com este guia, vou te ensinar, passo a passo, como baixar, configurar e rodar o Rango Express. Seja você iniciante ou expert!
+O Rango Express é um sistema web para facilitar o gerenciamento de pedidos de marmitas! Com ele, você pode:
+
+✅ Cadastrar usuários e pedidos.
+
+✅ Gerenciar rotas de entrega.
+
+Seja para uso pessoal ou comercial.
+
+============================================================================================
   
-  O projeto foi desenvolvido com Spring Boot no back-end e Angular no front-end, seguindo a arquitetura monolítica e o padrão Model-View-Controller (MVC). Seu objetivo principal é oferecer uma solução prática, escalável e segura para empresas do ramo alimentício.
-  
+## 🎯 O QUE VOCÊ VAI APRENDER AQUI? ##
 
-### 🌐 Estrutura do Projeto
+- Como instalar a aplicação na sua máquina.
 
-  O projeto é dividido nas seguintes camadas:
+- Quais ferramentas você precisa para tudo funcionar.
 
-   1. Back-End
-   Framework: Spring Boot
-   Linguagem: Java
-   Funções principais:
-   Autenticação e autorização de usuários (Spring Security).
-  Gerenciamento de pedidos e controle financeiro.
-  Comunicação com o banco de dados (PostgreSQL).
-  Algoritmos para otimização de rotas de entrega.
+- Como configurar Angular e PrimeNG corretamente.
 
-  2. Front-End
-  Framework: Angular
-  Biblioteca de UI: PrimeNG
-  Funções principais:
-  Interface intuitiva para cadastro e gerenciamento de pedidos.
-  Visualização de rotas e relatórios financeiros.
-  Responsividade para uso em diferentes dispositivos.
+- Como fazer um fork e colaborar com o projeto.
 
+============================================================================================  
+## 🚀 INSTALANDO O RANGO EXPRESS ##
 
+📋 Pré-requisitos
+
+ Antes de começar, certifique-se de ter estas ferramentas instaladas:
+
+- Java JDK ( Versão 17) – Necessário para rodar o backend. -https://www.oracle.com/java/technologies/downloads/ -
+
+- Node.js e npm – Para gerenciar o frontend. - https://nodejs.org/pt -
+
+- Git – Para clonar o projeto e colaborar. - https://git-scm.com/ - 
+
+- H2 – Banco de dados para armazenar os dados. - https://h2database.com/html/main.html -
+
+- IntelliJ IDEA – (ou sua IDE favorita). - https://www.jetbrains.com/pt-br/idea/ - 
+
+============================================================================================
     
-### 🚀 Começando
+## 🔧 PASSO A PASSO PARA CONFIGURAR E INSTALAR. ##
 
-  Estas instruções ajudam a configurar o projeto para desenvolvimento e teste em sua máquina local.
-  Para saber como implantar em produção, consulte a seção Implantação.
-  Consulte **[Implantação](#-implanta%C3%A7%C3%A3o)** para saber como implantar o projeto.
-  
-  
+1º Passo: Clonando o repositório
+Abra o terminal e execute os comandos:
 
-### 📋 Pré-requisitos
+    git clone https://github.com/Iot-Health-Br/SpringBoot_RangoExpress.git
+    cd SpringBoot_RangoExpress
+ 
+2º Passo: Configurando o Angular CLI
+O frontend do Rango Express usa Angular, então precisamos configurar o ambiente:
 
-   Antes de iniciar, certifique-se de ter todas as ferramentas necessárias instaladas. Você precisará de:
+Instale o Angular CLI (a ferramenta oficial):
 
-   - Java JDK 20: Ambiente para executar o back-end.
-   - Git: Controle de versão para clonar o repositório.
-   - PostgreSQL: Banco de dados utilizado para armazenamento.
-   - Node.js e NPM: Necessários para o front-end.
-   - IntelliJ IDEA ou outra IDE de sua preferência: Para desenvolvimento do back-end.
+    npm install -g @angular/cli
 
-     
+Nota: Caso esteja usando a versão 17 do Angular:
 
-### 🔧 Instalação
+    npm install -g @angular/cli@17
+    
+Crie o projeto Angular (se necessário):
 
-   Siga estes passos para configurar seu ambiente de desenvolvimento:
+    ng new NOME-DO-PROJETO
+    
+3º Passo: Instalando PrimeNG
+O PrimeNG é uma biblioteca essencial para estilização. Vamos verificar e instalar:
 
-1. **Clone o repositório:**
+Verifique se já está instalado:
 
-   ```bash
-   git clone https://github.com/Iot-Health-Br/SpringBoot_RangoExpress.git
-   
+    npm ls primeng
+    
+Caso não esteja, instale:
 
-2. **Crie o banco de dados:**
+    npm install primeng
+    
+Configure o arquivo angular.json e adicione as fontes de estilização necessárias para o PrimeNG.
 
-   Nesta Aplicação estamos usando o banco de dados H2 conforme o **[Construído com](#-Construído%C3%A7%C3%A3o)**   
-   Execute os scripts SQL fornecidos no repositório para criar as tabelas necessárias.
-   
+4º Passo: Instalando PrimeIcons
+Os PrimeIcons são ícones usados no projeto. Configure-os assim:
+Verifique se estão instalados:
 
-  
-### ⚙️ Instale as dependências do Front-End:
-  
-    cd frontend/
+    npm ls primeicons
+    
+Caso não estejam, instale:
+
+    npm install primeicons
+No arquivo styles.css, importe as bibliotecas de estilização necessárias para os ícones.
+
+5º Passo: Configurando o backend e o banco de dados
+Navegue para a pasta do backend:
+
+    cd backend
+    
+Compile o projeto:
+
+    ./mvnw clean install
+Configure o banco de dados:
+
+Crie um banco chamado rango_express no H2.
+Atualize o arquivo application.properties com as credenciais do banco.
+Inicie o backend:
+
+    ./mvnw spring-boot:run
+    
+6º Passo: Iniciando o frontend
+Navegue até a pasta do frontend:
+
+    cd frontend
+Instale as dependências:
+
     npm install
     
-   1. Instale as dependências do Front-End:
-      
-   Abra o projeto no IntelliJ IDEA.
-   Configure o arquivo application.properties com as credenciais do banco de dados.
-   Execute a aplicação.
+Inicie o servidor:
 
-
-   
-  2. Inicie o front-end:
-     
-    cd frontend/
     npm start
+Pronto! 🎉 Acesse a aplicação em http://localhost:4200.
+
+============================================================================================
+
+## 🍴 COMO FAZER O FORK ##
+
+Faça o fork do repositório:
+Na página do projeto no GitHub, clique em Fork.
+
+Clone o repositório forkado:
+
+    (https://github.com/Iot-Health-Br/SpringBoot_RangoExpress/fork)
+    cd SpringBoot_RangoExpress
     
-Agora, acesse a aplicação no navegador em http://localhost:4200.
+Crie uma branch para sua feature:
 
+    git checkout -b minha-nova-feature
+    
+Faça suas alterações e commit:
 
+    git add .
+    git commit -m "Descrição das mudanças"
+    
+Envie suas mudanças para o repositório:
 
-### 💻 Testes
- 
-1. Testes Unitários:
+    git push origin minha-nova-feature
+Abra um Pull Request:
+Vá até o repositório original e clique em New Pull Request.
+
+============================================================================================
+
+## 🛠️ FERRAMENTAS USADAS NO PROJETO ##
+
+- Backend:
+
+💻 Spring Boot – Framework para APIs. - https://spring.io/ -
+
+🔒 Spring Security – Autenticação. - https://spring.io/projects/spring-security -
+
+- Frontend:
+
+🖼️ Angular – Interface moderna. - https://angular.dev/installation -
+
+🎨 PrimeNG – Componentes visuais. - https://primeng.org/ -
+
+- Banco de Dados:
+
+🛢️ H2 – Banco relacional. - https://h2database.com/html/main.html -
+
+- Versionamento:
+
+🧰 Git – Controle de versões. - https://git-scm.com/ -
+
+============================================================================================
    
-Cada função do back-end foi testada para garantir consistência nos cálculos de rotas, pedidos e relatórios.
-
-2. Testes de Integração:
-   
-Verificações completas para assegurar a comunicação entre o back-end e o front-end.
-
-3. Testes de Desempenho:
-   
-Avaliação do tempo de resposta para rotas grandes e pequenas.
-
-
-Para rodar os testes, use os comandos abaixo:
-     
-   # Para back-end:
-     mvn test
-
-   # Para front-end:
-     ng test
-
-
-
-### 🛠️ Construído com
-
-   Ferramentas usadas para criar o projeto.
-
-   * Programa criado usando a ferrameta [Intelij] - https://www.jetbrains.com/pt-br/idea/ - IDE usada
-   * Programa criado usando o framework [Spring Boot] - https://spring.io/ - Framework usado
-   * Programa criado usando a ferrameta [GIT] - https://git-scm.com/ - Versionamento
-   * Programa criado usando o banco de dados [H2] -  - Banco de Dados usado
-
-     
-
-### 🖇️ Colaborando
-   1. Fazer o Fork
-
-   1. Na página do repositório que você deseja fazer o fork, clique no botão `Fork` no canto superior direito da página.
-
-   2. GitHub irá criar uma cópia do repositório em sua conta. Este processo pode levar alguns segundos.
-  
-   ### 2. Clonar o Repositório Forkado
-
-   Depois de fazer o fork, você precisará clonar o repositório para sua máquina local para começar a fazer alterações.
-
-   1. Vá para a página do seu repositório forkado. Ele estará localizado em `https://github.com/seu-usuario/nome-do-repositorio`.
-
-   2. Clique no botão `Code` e copie a URL do repositório (HTTPS, SSH, ou GitHub CLI).
-   ![Clone Button](https://docs.github.com/assets/images/help/repository/https-url-clone-cli.png)
-
-  3. Abra um terminal na sua máquina local e execute o seguinte comando para clonar o repositório:
-
-    git clone https://github.com/seu-usuario/nome-do-repositorio.git
-
-
-
-### 📌 Versão
-
-   Nós usamos [GIT](https://git-scm.com/) para controle de versão. Para as versões disponíveis, observe as [tags neste repositório](). 
-
-   
-
-### ✨ Autores
+## ✨ AUTORES ##
 
    * **Desenvolvedor** - *Trabalho Inicial* / *Documentação* - [Igor Leonor Macedo](https://github.com/Iot-Health-Br)
    * **Desenvolvedor** - *Trabalho Inicial* / *Documentação* - [Luidy Tavares](https://github.com/LuidyTT)
    * **Desenvolvedor** - *Trabalho Inicial* / *Documentação* - [Kauan Farias Lima](https://github.com/lKauanF)
      
+============================================================================================
+## 🎁 AGRADECIMENTOS ##
 
+Obrigado por conferir este projeto! 💖
+Se achou útil:
 
-### 📄 Licença
+- Deixe uma ⭐ no repositório.
 
-   Este projeto está sob a licença (sua licença) - veja o arquivo [LICENSE.md](https://github.com/usuario/projeto/licenca) para detalhes.
+- Compartilhe 🍺 com seus amigos.
 
-   
-
-## 🎁 Expressões de gratidão
-
-   * Conte a outras pessoas sobre este projeto 📢;
-   * Convide alguém da equipe para uma cerveja 🍺;
-   * Um agradecimento publicamente 👋;
+============================================================================================
