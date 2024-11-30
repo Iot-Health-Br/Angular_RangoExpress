@@ -10,6 +10,7 @@ import {CommonModule} from "@angular/common";
 import {combineLatest, timer} from "rxjs";
 import {User} from "../../model/user.model";
 import {AuthServiceService} from "../../service/auth-service.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-list-user',
@@ -36,7 +37,7 @@ export class ListUserComponent implements OnInit{
   error: string | null = null;
 
   private readonly LOADING_TIME = 5000; // 5 segundos em milissegundos
-  constructor(private messageService: MessageService, private authServiceService: AuthServiceService) {}
+  constructor(private router: Router, private messageService: MessageService, private authServiceService: AuthServiceService) {}
 
   ngOnInit(): void {
     this.loadUsers();
@@ -89,5 +90,9 @@ export class ListUserComponent implements OnInit{
   searchUser() {
     if (this.loading) return;
     this.loadUsers();
+  }
+
+  returnHome() {
+    this.router.navigate(['/home-adm']);
   }
 }

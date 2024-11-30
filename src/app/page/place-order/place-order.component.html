@@ -51,18 +51,9 @@
     </div>
     <div class="button-group">
       <p-toast></p-toast>
-      <p-button
-        label="Salvar"
-        icon="pi pi-check"
-        styleClass="save-button"
-        (onClick)="SalvarPedido()">
-      </p-button>
-      <p-button
-        label="Cancelar"
-        icon="pi pi-times"
-        styleClass="cancel-button"
-        (onClick)="clearForm()">
-      </p-button>
+      <p-button label="Salvar" icon="pi pi-check" styleClass="save-button" (onClick)="SalvarPedido()"></p-button>
+      <p-button label="Cancelar" icon="pi pi-times" styleClass="cancel-button" (onClick)="clearForm()"></p-button>
+      <p-button label="Return" icon="pi pi-replay" styleClass="return-button" (onClick)="returnHome()"> </p-button>
     </div>
   </p-panel>
 </div>

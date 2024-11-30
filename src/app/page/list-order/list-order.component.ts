@@ -11,6 +11,7 @@ import { PedidoService } from "../../service/pedido.service";
 import { Pedido } from "../../interface/pedido";
 import {CheckboxModule} from "primeng/checkbox";
 import {forkJoin} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-list-order',
@@ -43,6 +44,7 @@ export class ListOrderComponent implements OnInit {
   ];
 
   constructor(
+    private router: Router,
     private pedidoService: PedidoService,
     private messageService: MessageService,
     private datePipe: DatePipe
@@ -138,5 +140,9 @@ export class ListOrderComponent implements OnInit {
       summary: 'Info',
       detail: 'Seleção limpa'
     });
+  }
+
+  returnHome() {
+    this.router.navigate(['/home-adm']);
   }
 }

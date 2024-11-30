@@ -9,6 +9,7 @@ import {TableModule} from "primeng/table";
 import {ToastModule} from "primeng/toast";
 import {Pedido} from "../../interface/pedido";
 import {PedidoService} from "../../service/pedido.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-list-avaliation',
@@ -33,6 +34,7 @@ export class ListAvaliationComponent {
   selectedPedidos: Pedido[] = [];
 
   constructor(
+    private router: Router,
     private pedidoService: PedidoService,
     private messageService: MessageService,
     private datePipe: DatePipe
@@ -80,5 +82,9 @@ export class ListAvaliationComponent {
 
   onSelectionChange(event: any) {
     this.selectedPedidos = event;
+  }
+
+  returnHome() {
+    this.router.navigate(['/home-adm']);
   }
 }
