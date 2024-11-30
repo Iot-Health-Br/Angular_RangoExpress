@@ -16,6 +16,7 @@
 
         <ng-template pTemplate="header">
           <tr>
+            <th> <p-button label="Return" icon="pi pi-replay" styleClass="return-button" (onClick)="returnHome()"> </p-button> </th>
             <th style="width: 4rem">Selecionar</th>
             <th>ID</th>
             <th>Status</th>
@@ -24,11 +25,14 @@
             <th>Itens do Pedido</th>
             <th>Endereço</th>
             <th>Total</th>
+            <th>Entrega Estimada</th>
           </tr>
         </ng-template>
 
         <ng-template pTemplate="body" let-pedido>
           <tr>
+            <td>
+            </td>
             <td>
               <p-checkbox
                 [ngModel]="isSelected(pedido)"
