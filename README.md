@@ -1,8 +1,9 @@
 
+
 ![WhatsApp Image 2024-11-25 at 10 52 07 PM (1)](https://github.com/user-attachments/assets/c1f6cf59-9475-402c-b19a-b9d4cd2416c1)
 
 
-============================================================================================
+===========================================================================
 ## 🍽️ RANGO EXPRESS ##
 
 Bem-vindo ao Rango Express, seu sistema para facilitar o gerenciamento de pedidos de marmitas!
@@ -16,7 +17,7 @@ O Rango Express é um sistema web para facilitar o gerenciamento de pedidos de m
 
 Seja para uso pessoal ou comercial.
 
-============================================================================================
+===========================================================================
   
 ## 🎯 O QUE VOCÊ VAI APRENDER AQUI? ##
 
@@ -28,14 +29,14 @@ Seja para uso pessoal ou comercial.
 
 - Como fazer um fork e colaborar com o projeto.
 
-============================================================================================  
+===========================================================================  
 ## 🚀 INSTALANDO O RANGO EXPRESS ##
 
 📋 Pré-requisitos
 
  Antes de começar, certifique-se de ter estas ferramentas instaladas:
 
-- Java JDK ( Versão 17) – Necessário para rodar o backend. -https://www.oracle.com/java/technologies/downloads/ -
+- Java JDK ( Versão 17) – Necessário para o backend. -https://www.oracle.com/java/technologies/downloads/ -
 
 - Node.js e npm – Para gerenciar o frontend. - https://nodejs.org/pt -
 
@@ -45,7 +46,7 @@ Seja para uso pessoal ou comercial.
 
 - IntelliJ IDEA – (ou sua IDE favorita). - https://www.jetbrains.com/pt-br/idea/ - 
 
-============================================================================================
+===========================================================================
     
 ## 🔧 PASSO A PASSO PARA CONFIGURAR E INSTALAR. ##
 
@@ -123,7 +124,7 @@ Inicie o servidor:
     npm start
 Pronto! 🎉 Acesse a aplicação em http://localhost:4200.
 
-============================================================================================
+===========================================================================
 
 ## 🍴 COMO FAZER O FORK ##
 
@@ -150,7 +151,7 @@ Envie suas mudanças para o repositório:
 Abra um Pull Request:
 Vá até o repositório original e clique em New Pull Request.
 
-============================================================================================
+===========================================================================
 
 ## 🛠️ FERRAMENTAS USADAS NO PROJETO ##
 
@@ -174,7 +175,7 @@ Vá até o repositório original e clique em New Pull Request.
 
 🧰 Git – Controle de versões. - https://git-scm.com/ -
 
-============================================================================================
+===========================================================================
    
 ## ✨ AUTORES ##
 
@@ -182,7 +183,7 @@ Vá até o repositório original e clique em New Pull Request.
    * **Desenvolvedor** - *Trabalho Inicial* / *Documentação* - [Luidy Tavares](https://github.com/LuidyTT)
    * **Desenvolvedor** - *Trabalho Inicial* / *Documentação* - [Kauan Farias Lima](https://github.com/lKauanF)
      
-============================================================================================
+===========================================================================
 ## 🎁 AGRADECIMENTOS ##
 
 Obrigado por conferir este projeto! 💖
@@ -192,4 +193,5 @@ Se achou útil:
 
 - Compartilhe 🍺 com seus amigos.
 
-============================================================================================
+===========================================================================
+
