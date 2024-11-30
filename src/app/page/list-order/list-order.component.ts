@@ -34,6 +34,7 @@ export class ListOrderComponent implements OnInit {
   pedidos: Pedido[] = [];
   selectedPedidos: Pedido[] = [];
   status: any[] = [
+    { key: "NOVO", label: 'NOVO' },
     { key: "CONFIRMADO", label: 'CONFIRMADO' },
     { key: "PREPARANDO", label: 'PREPARANDO' },
     { key: "PRONTO", label: 'PRONTO' },

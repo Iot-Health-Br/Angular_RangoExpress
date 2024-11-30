@@ -11,6 +11,7 @@ import {Pedido} from "../../interface/pedido";
 import {PedidoService} from "../../service/pedido.service";
 import {forkJoin} from "rxjs";
 import {FormsModule} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-list-delivery',
@@ -40,6 +41,7 @@ export class ListDeliveryComponent implements OnInit{
     { key: "CANCELADO", label: 'CANCELADO' }
   ];
   constructor(
+    private router: Router,
     private pedidoService: PedidoService,
     private messageService: MessageService,
     private datePipe: DatePipe
@@ -133,5 +135,9 @@ export class ListDeliveryComponent implements OnInit{
       summary: 'Info',
       detail: 'Seleção limpa'
     });
+  }
+
+  returnHome() {
+    this.router.navigate(['/home-adm']);
   }
 }
