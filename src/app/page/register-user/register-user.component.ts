@@ -95,6 +95,6 @@ export class RegisterUserComponent {
   }
 
   return() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/home-adm']);
   }
 }

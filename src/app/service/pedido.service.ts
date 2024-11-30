@@ -17,9 +17,16 @@ export class PedidoService {
     return this.http.get<Product[]>(`${this.apiCardapio}/hoje`);
   }
 
+  // Lista de Pedidos
   getPedidosList(): Observable<Pedido[]> {
     //console.log("Receive of API: ",<Pedido[]>);
     return this.http.get<Pedido[]>(`${this.apiPedido}/list`);
+  }
+
+  // Lista de ENTREGAS
+  getListDelivery(): Observable<Pedido[]> {
+    //console.log("Receive of API: ",<Pedido[]>);
+    return this.http.get<Pedido[]>(`${this.apiPedido}/list/delivery`);
   }
     salvarPedido(pedido: Pedido): Observable<string> {
     console.log("Service for API: ", pedido);

@@ -141,7 +141,7 @@ export class HomeAdmComponent implements OnInit{
   }
 
   private avaliationDelivery() {
-    this._router.navigate(['/avaliation-delivery']);
+    this._router.navigate(['/list-avaliation']);
   }
 
   private listDelivery() {

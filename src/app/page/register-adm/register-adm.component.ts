@@ -113,7 +113,7 @@ export class RegisterAdmComponent {
   }
 
   return() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/home-adm']);
   }
 
 }
