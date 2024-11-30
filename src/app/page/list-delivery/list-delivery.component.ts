@@ -45,7 +45,7 @@ export class ListDeliveryComponent implements OnInit{
     private datePipe: DatePipe
   ) {}
   ngOnInit() {
-    this.pedidoService.getPedidosList().subscribe({
+    this.pedidoService.getListDelivery().subscribe({
       next: (data) => {
         this.pedidos = data;
         console.log(data);

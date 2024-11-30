@@ -1,1 +1,85 @@
-<p>list-avaliation works!</p>
+<div class="card flex justify-content-center">
+  <p-panel header="Lista de Avaliation" [toggleable]="true">
+    <div class="card">
+      <p-table
+        [value]="pedidos"
+        [(selection)]="selectedPedidos"
+        dataKey="id"
+        [tableStyle]="{'min-width': '50rem'}"
+        [rowHover]="true"
+        [rows]="10"
+        [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10,25,50]"
+        [paginator]="true"
+        currentPageReportTemplate="Mostrando {first} até {last} de {totalRecords} pedidos"
+        [filterDelay]="0"
+        [globalFilterFields]="['id','status','nomeUsuario']">
+
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width: 4rem">
+              <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
+            <th>ID</th>
+            <th pSortableColumn="Status">Status <p-sortIcon field="Status" /></th>
+            <th>Data do Pedido</th>
+            <th>Cliente</th>
+            <th>Itens do Pedido</th>
+            <th>Endereço</th>
+            <th>Total</th>
+            <th pSortableColumn="Avaliação">Reviews <p-sortIcon field="Avaliação" /></th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-pedido>
+          <tr>
+            <td>
+              <p-tableCheckbox [value]="pedido"></p-tableCheckbox>
+            </td>
+            <td>{{pedido.id}}</td>
+            <td>{{pedido.status}}</td>
+
+            <td>{{formatarData(pedido.dataPedido)}}</td>
+            <td>{{pedido.nomeUsuario}}</td>
+            <td>
+              <div *ngFor="let item of pedido.itens">
+                <strong>{{item.nome}}</strong> ({{item.quantidade}}x)
+                <br>
+                <small>Ingredientes: {{item.ingredientes.join(', ')}}</small>
+                <br>
+                <small>Valor: {{item.valor | currency:'BRL'}}</small>
+              </div>
+            </td>
+            <td>{{pedido.endereco}}</td>
+            <td>{{pedido.totalPedido | currency:'BRL'}}</td>
+
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="summary">
+          <div class="flex align-items-center justify-content-between">
+            Total de Pedidos: {{pedidos.length}}
+          </div>
+        </ng-template>
+      </p-table>
+    </div>
+
+    <div class="button-group mt-3">
+      <p-toast></p-toast>
+      <p-button
+        label="Atualizar Selecionados"
+        icon="pi pi-check"
+        styleClass="p-button-success mr-2"
+        [disabled]="!selectedPedidos || selectedPedidos.length === 0"
+        (onClick)="atualizarPedido()">
+      </p-button>
+      <p-button
+        label="Limpar Seleção"
+        icon="pi pi-times"
+        styleClass="p-button-danger"
+        [disabled]="!selectedPedidos || selectedPedidos.length === 0"
+        (onClick)="limparSelecao()">
+      </p-button>
+    </div>
+  </p-panel>
+</div>
