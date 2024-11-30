@@ -10,6 +10,7 @@ import { Product } from "../../interface/product";
 import { ToastModule } from "primeng/toast";
 import { Button } from "primeng/button";
 import {Pedido} from "../../interface/pedido";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -33,14 +34,16 @@ export class PlaceOrderComponent implements OnInit {
   selectedProducts: Product[] = [];
   totalPedido: number = 0;
   idPedido: number =0;
+  tempoEstimadoEntrega: string='';
 
   idUsuario: number = Number(localStorage.getItem('userId')) || 0;
   nomeUsuario: string = localStorage.getItem('fullName') || '';
   endereco: string = localStorage.getItem('endereço') || '';
   latitude: string = localStorage.getItem('latitude') || '';
   longitude: string = localStorage.getItem('longitude') || '';
+  roles: string = localStorage.getItem('roles') || '';
 
-  constructor(private pedidoService: PedidoService,private messageService: MessageService) {}
+  constructor(private router: Router, private pedidoService: PedidoService,private messageService: MessageService) {}
 
   ngOnInit() {
     this.pedidoService.getPratosDoDia().subscribe({
@@ -109,7 +112,8 @@ export class PlaceOrderComponent implements OnInit {
       longitude: this.longitude,
       totalPedido: this.totalPedido,
       dataPedido: new Date().toISOString(),
-      status: "NOVO"
+      status: "NOVO",
+      tempoEstimadoEntrega: this.tempoEstimadoEntrega
     };
 
     console.log("Component for Service: ", pedido);
@@ -134,5 +138,13 @@ export class PlaceOrderComponent implements OnInit {
     });
     this.selectedProducts = [];
     this.totalPedido = 0;
+  }
+
+  returnHome() {
+    if(this.roles=="USER"){
+      this.router.navigate(['/home']);
+    }else{
+      this.router.navigate(['/home-adm']);
+    }
   }
 }

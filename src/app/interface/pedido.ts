@@ -14,4 +14,5 @@ export interface Pedido {
   totalPedido: number;
   dataPedido: string;
   status: string;
+  tempoEstimadoEntrega: string;
 }
