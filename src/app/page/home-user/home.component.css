@@ -15,3 +15,11 @@ body, html {
   padding: 0;
   overflow: hidden;
 }
+
+/*Card de Informação na tela*/
+::ng-deep .custom-card {
+  width: 500px;           /* Largura fixa do card */
+  margin: 0 auto;         /* Centraliza o card */
+  border-radius: 15px;    /* Borda arredondada */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Sombra suave */
+}
