@@ -8,11 +8,11 @@ import {MessageService, PrimeTemplate} from "primeng/api";
 import {TableModule} from "primeng/table";
 import {ToastModule} from "primeng/toast";
 import {Pedido} from "../../interface/pedido";
-import {PedidoService} from "../../service/pedido.service";
 import {Router} from "@angular/router";
+import {PedidoService} from "../../service/pedido.service";
 
 @Component({
-  selector: 'app-list-avaliation',
+  selector: 'app-list-order-user',
   standalone: true,
   imports: [
     Button,
@@ -26,12 +26,13 @@ import {Router} from "@angular/router";
     ToastModule
   ],
   providers: [MessageService, DatePipe],
-  templateUrl: './list-avaliation.component.html',
-  styleUrl: './list-avaliation.component.css'
+  templateUrl: './list-order-user.component.html',
+  styleUrl: './list-order-user.component.css'
 })
-export class ListAvaliationComponent implements OnInit{
+export class ListOrderUserComponent implements OnInit{
   pedidos: Pedido[] = [];
   selectedPedidos: Pedido[] = [];
+  idUsuario: number = Number(localStorage.getItem('userId')) || 0;
 
   constructor(
     private router: Router,
@@ -41,9 +42,11 @@ export class ListAvaliationComponent implements OnInit{
   ) {}
 
   ngOnInit() {
-    this.pedidoService.getListOrderDelivered().subscribe({
+    this.pedidoService.getPedidosListUser(this.idUsuario).subscribe({
       next: (data) => {
         this.pedidos = data;
+        console.log(data);
+
       },
       error: (error) => {
         console.error('Erro ao carregar pedidos:', error);
@@ -60,31 +63,15 @@ export class ListAvaliationComponent implements OnInit{
     return this.datePipe.transform(data, 'dd/MM/yyyy HH:mm') || '';
   }
 
+  returnHome() {
+    this.router.navigate(['/home']);
+  }
+
   atualizarPedido() {
-    // Implementar lógica de atualização
-    if (this.selectedPedidos.length > 0) {
-      this.messageService.add({
-        severity: 'success',
-        summary: 'Sucesso',
-        detail: 'Pedidos atualizados com sucesso'
-      });
-    }
+
   }
 
   limparSelecao() {
-    this.selectedPedidos = [];
-    this.messageService.add({
-      severity: 'info',
-      summary: 'Info',
-      detail: 'Seleção limpa'
-    });
-  }
 
-  onSelectionChange(event: any) {
-    this.selectedPedidos = event;
-  }
-
-  returnHome() {
-    this.router.navigate(['/home-adm']);
   }
 }

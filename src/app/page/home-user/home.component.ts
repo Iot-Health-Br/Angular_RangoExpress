@@ -13,7 +13,12 @@ import {CardModule} from "primeng/card";
   selector: 'app-home',
   standalone: true,
   imports: [
-    MegaMenuModule, ButtonModule, CommonModule, AvatarModule, MenubarModule, CardModule
+    MegaMenuModule,
+    ButtonModule,
+    CommonModule,
+    AvatarModule,
+    MenubarModule,
+    CardModule
   ],
   providers:[MessageService],
   templateUrl: './home.component.html',
@@ -108,7 +113,7 @@ export class HomeComponent implements OnInit{
   }
 
   private listOrder() {
-    this._router.navigate(['/list-order']);
+    this._router.navigate(['/list-order-user']);
   }
 
   private avaliationOrder() {

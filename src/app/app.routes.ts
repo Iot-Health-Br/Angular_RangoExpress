@@ -13,6 +13,7 @@ import {ListDeliveryComponent} from "./page/list-delivery/list-delivery.componen
 import {ListAvaliationComponent} from "./page/list-avaliation/list-avaliation.component";
 import {AvaliationDeliveryComponent} from "./page/avaliation-delivery/avaliation-delivery.component";
 import {HomeAdmComponent} from "./page/home-adm/home-adm.component";
+import {ListOrderUserComponent} from "./page/list-order-user/list-order-user.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -34,6 +35,8 @@ export const routes: Routes = [
 
   {path: 'list-order', component: ListOrderComponent, canActivate: [adminGuard]},
   {path: 'list-order', component: ListOrderComponent, canActivate: [managerGuard]},
+
+  {path: 'list-order-user', component: ListOrderUserComponent, canActivate: [authGuard]},
 
   {path: 'list-delivery', component: ListDeliveryComponent, canActivate: [adminGuard]},
   {path: 'list-delivery', component: ListDeliveryComponent, canActivate: [managerGuard]},
