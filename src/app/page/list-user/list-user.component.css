@@ -15,36 +15,46 @@ html, body {
 }
 
 .card-flex {
-  background-color: #88b8b0;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  width: 90%; /* O card ocupa 90% da largura da tela, garantindo que ele se ajuste ao tamanho */
-  max-width: 1000px; /* Define uma largura máxima para não expandir demais em telas grandes */
+  background-color: #DE7D38;
+  border-radius: 15px;
+  width: 60%; /* Faz com que os inputs ocupem toda a largura do card */
+  padding: 10px;
+  font-size: 1rem;
   box-sizing: border-box;
-  text-align: center; /* Centraliza todo o conteúdo de texto dentro do card */
+  color:white;
+  text-align:center;
+}
+
+::ng-deep .p-datatable-table{
+  border-radius: 15px;
+  background-color:white;
+}
+
+::ng-deep th{
+  border-radius: 15px;
+  background-color:white;
 }
 
 /* Para alterar as cores dos botões de PrimeNG, é necessário usar ::ng-deep */
 ::ng-deep .save-button {
-  background-color: #28a745 !important; /* Cor de fundo verde */
+  background-color: #4965EA !important; /* Cor de fundo verde */
   color: white !important; /* Cor do texto */
   border: none !important; /* Remove a borda */
 }
 /* Adiciona efeito de hover para o botão Save */
 ::ng-deep .save-button:hover {
-  background-color: #218838 !important; /* Cor verde mais escura ao passar o mouse */
+  background-color: #293B7F !important; /* Cor verde mais escura ao passar o mouse */
 }
 
 /* Estilos para o botão Search */
 ::ng-deep .search-button {
-  background-color: #fdda00 !important; /* Cor de fundo*/
+  background-color: #4965EA !important; /* Cor de fundo vermelha */
   color: white !important; /* Cor do texto */
   border: none !important; /* Remove a borda */
 }
 /* Adiciona efeito de hover para o botão Search */
 ::ng-deep .search-button:hover {
-  background-color: #e1c20c !important; /* Cor mais escura ao passar o mouse */
+  background-color: #293B7F !important; /* Cor vermelha mais escura ao passar o mouse */
 }
 
 /* Estilos para o botão Cancel */
