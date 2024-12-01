@@ -1,7 +1,6 @@
 html, body {
   height: 100%;
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
@@ -10,12 +9,16 @@ html, body {
   display: flex;
   justify-content: center; /* Centraliza horizontalmente */
   align-items: flex-start; /* Alinha no topo verticalmente */
-  height: 100vh;
-  padding-top: 5vh; /* Adiciona um espaçamento no topo proporcional ao tamanho da janela */
+  background-image: url("https://github.com/Iot-Health-Br/Angular_RangoExpress/blob/Luidy/src/imagens/Rango%20Express%20BackGround%2001.png?raw=true");
+  background-size: cover;
+  background-position: center;
+  height: auto;
+  margin: 0;        /* Remove margens */
+  padding: 0;       /* Remove padding */
 }
 
 .card-flex {
-  background-color: #88b8b0;
+  background-color: darkorange;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -23,6 +26,7 @@ html, body {
   max-width: 500px; /* Define uma largura máxima para não expandir demais em telas grandes */
   box-sizing: border-box;
   text-align: center; /* Centraliza todo o conteúdo de texto dentro do card */
+  color: white;
 }
 
 /* Para garantir que os campos de entrada também sejam responsivos */
@@ -35,10 +39,42 @@ html, body {
 }
 
 .input-group input {
+  background-color: #DE7D38;
+  border-radius: 15px;
   width: 60%; /* Faz com que os inputs ocupem toda a largura do card */
   padding: 10px;
   font-size: 1rem;
   box-sizing: border-box;
+  color:white;
+  text-align:center;
+}
+
+.input-group ::ng-deep .primelabels {
+  width: auto;
+  padding: 10px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  background-color: #DE7D38;
+  color:white;
+  text-align:center;
+}
+
+::ng-deep ::placeholder{
+  text-align: center;
+  color:lightgrey;
+}
+
+::ng-deep .p-password-input {
+  width: auto;
+  padding: 10px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  background-color: #DE7D38;
+  color:white;
+}
+
+::ng-deep .p-icon{
+  color:white;
 }
 
 /*Manter as combobox no mesmo tamanho dos campos de input*/
@@ -62,16 +98,36 @@ html, body {
   height: 38px;
 }
 
+::ng-deep .p-treeselect .p-treeselect-label.p-placeholder{
+  color: lightgrey;
+}
+
+::ng-deep .p-treeselect-panel .p-treeselect-items-wrapper .p-tree{
+  background-color: #DE7D38;
+}
+
+::ng-deep .p-treeselect-label{
+  background-color: #DE7D38;
+}
+
+::ng-deep .p-treeselect-label-container{
+  background-color: #DE7D38;
+}
+
+::ng-deep .p-treeselect-trigger{
+  background-color: #DE7D38;
+}
+
 /* Para alterar as cores dos botões de PrimeNG, é necessário usar ::ng-deep */
 ::ng-deep .save-button {
-  background-color: #28a745 !important; /* Cor de fundo verde */
+  background-color: #4965EA !important; /* Cor de fundo verde */
   color: white !important; /* Cor do texto */
   border: none !important; /* Remove a borda */
 }
 
 /* Adiciona efeito de hover para o botão Save */
 ::ng-deep .save-button:hover {
-  background-color: #218838 !important; /* Cor verde mais escura ao passar o mouse */
+  background-color: #293B7F !important; /* Cor verde mais escura ao passar o mouse */
 }
 
 /* Estilos para o botão Cancel */
@@ -84,6 +140,16 @@ html, body {
 /* Adiciona efeito de hover para o botão Cancel */
 ::ng-deep .cancel-button:hover {
   background-color: #c82333 !important; /* Cor vermelha mais escura ao passar o mouse */
+}
+
+::ng-deep .return-button {
+  background-color: #4965EA !important; /* Cor de fundo vermelha */
+  color: white !important; /* Cor do texto */
+  border: none !important; /* Remove a borda */
+}
+/* Adiciona efeito de hover para o botão Return */
+::ng-deep .return-button:hover {
+  background-color: #293B7F !important; /* Cor vermelha mais escura ao passar o mouse */
 }
 
 /* Para os botões serem responsivos e terem espaçamento */
