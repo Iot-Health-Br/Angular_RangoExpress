@@ -1,10 +1,8 @@
-<!-- list-order.component.html -->
 <div class="card flex justify-content-center">
   <p-panel header="Lista de Pedidos" [toggleable]="true">
     <div class="card">
       <p-table
         [value]="pedidos"
-        [(selection)]="selectedPedidos"
         dataKey="id"
         [tableStyle]="{'min-width': '50rem'}"
         [rowHover]="true"
@@ -18,9 +16,7 @@
 
         <ng-template pTemplate="header">
           <tr>
-            <th style="width: 4rem">
-              <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-            </th>
+            <th style="width: 4rem">Selecionar</th>
             <th>ID</th>
             <th>Status</th>
             <th>Data do Pedido</th>
@@ -34,10 +30,22 @@
         <ng-template pTemplate="body" let-pedido>
           <tr>
             <td>
-              <p-tableCheckbox [value]="pedido"></p-tableCheckbox>
+              <p-checkbox
+                [ngModel]="isSelected(pedido)"
+                (ngModelChange)="toggleSelection(pedido)"
+                [binary]="true">
+              </p-checkbox>
             </td>
-            <td>{{pedido.id}}</td>
-            <td>{{pedido.status}}</td>
+            <td>{{pedido.idPedido}}</td>
+            <td>
+              <p-dropdown
+                [options]="status"
+                [(ngModel)]="pedido.status"
+                optionLabel="label"
+                (onChange)="onStatusChange(pedido)"
+                placeholder="Select a Status">
+              </p-dropdown>
+            </td>
             <td>{{formatarData(pedido.dataPedido)}}</td>
             <td>{{pedido.nomeUsuario}}</td>
             <td>
@@ -78,6 +86,7 @@
         [disabled]="!selectedPedidos || selectedPedidos.length === 0"
         (onClick)="limparSelecao()">
       </p-button>
+      <th> <p-button label="Return" icon="pi pi-replay" styleClass="return-button" (onClick)="returnHome()"> </p-button> </th>
     </div>
   </p-panel>
 </div>

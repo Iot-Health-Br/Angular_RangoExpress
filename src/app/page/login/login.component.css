@@ -7,7 +7,7 @@ html, body {
 }
 
 .layout-wrapper {
-  background-image: url(https://github.com/Iot-Health-Br/Angular_RangoExpress/blob/master/src/imagens/Rango%20Express%20BackGround.jpeg?raw=true);
+  background-image: url('/assets/imagens/Rango Express BackGround 01.png');
   background-size: 1350px 550px;
   background-repeat: no-repeat;
   background-position: center;

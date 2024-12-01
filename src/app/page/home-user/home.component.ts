@@ -13,7 +13,12 @@ import {CardModule} from "primeng/card";
   selector: 'app-home',
   standalone: true,
   imports: [
-    MegaMenuModule, ButtonModule, CommonModule, AvatarModule, MenubarModule, CardModule
+    MegaMenuModule,
+    ButtonModule,
+    CommonModule,
+    AvatarModule,
+    MenubarModule,
+    CardModule
   ],
   providers:[MessageService],
   templateUrl: './home.component.html',
@@ -21,6 +26,15 @@ import {CardModule} from "primeng/card";
 })
 export class HomeComponent implements OnInit{
   items: MenuItem[] | undefined;
+  showCard: boolean = false;
+  cardHeader: string = '';
+  activeCard: 'userData' | 'about' | 'phone' | 'location' = 'about';
+  idUsuario: number = Number(localStorage.getItem('userId')) || 0;
+  nomeUsuario: string = localStorage.getItem('fullName') || '';
+  endereco: string = localStorage.getItem('endereço') || '';
+  latitude: string = localStorage.getItem('latitude') || '';
+  longitude: string = localStorage.getItem('longitude') || '';
+  roles: string = localStorage.getItem('roles') || '';
 
   constructor(private _router: Router, private _service: AuthServiceService, private messageService: MessageService) {
   }
@@ -33,7 +47,8 @@ export class HomeComponent implements OnInit{
       },
       {
         label: 'Meus Dados',
-        icon: 'pi pi-user-edit'
+        icon: 'pi pi-user-edit',
+        command: () => this.showAboutUser()
       },
       {
         label: 'Pedidos',
@@ -66,15 +81,18 @@ export class HomeComponent implements OnInit{
         items: [
           {
             label: 'Sobre nós',
-            icon: 'pi pi-face-smile'
+            icon: 'pi pi-face-smile',
+            command: () => this.showAboutUs()
           },
           {
             label: 'Nosso Telefone',
-            icon: 'pi pi-phone'
+            icon: 'pi pi-phone',
+            command: () => this.showPhone()
           },
           {
             label: 'Nossa Localização',
-            icon: 'pi pi-warehouse'
+            icon: 'pi pi-warehouse',
+            command: () => this.showLocation()
           }
         ]
       },
@@ -95,10 +113,34 @@ export class HomeComponent implements OnInit{
   }
 
   private listOrder() {
-    this._router.navigate(['/list-order']);
+    this._router.navigate(['/list-order-user']);
   }
 
   private avaliationOrder() {
     this._router.navigate(['/avaliation-delivery']);
+  }
+
+  private showAboutUs() {
+    this.showCard = true;
+    this.cardHeader = 'Sobre Nossa Empresa';
+    this.activeCard = 'about';
+  }
+
+  private showPhone() {
+    this.showCard = true;
+    this.cardHeader = 'Contatos';
+    this.activeCard = 'phone';
+  }
+
+  private showLocation() {
+    this.showCard = true;
+    this.cardHeader = 'Onde Estamos';
+    this.activeCard = 'location';
+  }
+
+  private showAboutUser() {
+    this.showCard = true;
+    this.cardHeader = 'Seja Bem Vindo !';
+    this.activeCard = 'userData';
   }
 }

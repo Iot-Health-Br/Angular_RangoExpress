@@ -1,5 +1,5 @@
 .layout-wrapper {
-  background-image: url(https://github.com/Iot-Health-Br/Angular_RangoExpress/blob/master/src/imagens/Rango%20Express%20BackGround.jpeg?raw=true);
+  background-image: url('/assets/imagens/Rango Express BackGround.jpeg');
   background-size: 1350px 550px;
   background-repeat: no-repeat;
   background-position: center;
@@ -14,4 +14,12 @@ body, html {
   margin: 0;
   padding: 0;
   overflow: hidden;
+}
+
+/*Card de Informação na tela*/
+::ng-deep .custom-card {
+  width: 500px;           /* Largura fixa do card */
+  margin: 0 auto;         /* Centraliza o card */
+  border-radius: 15px;    /* Borda arredondada */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Sombra suave */
 }

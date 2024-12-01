@@ -7,6 +7,7 @@ import {AvatarModule} from "primeng/avatar";
 import {MenuItem, MessageService} from "primeng/api";
 import {Router} from "@angular/router";
 import {AuthServiceService} from "../../service/auth-service.service";
+import {CardModule} from "primeng/card";
 
 @Component({
   selector: 'app-home-adm',
@@ -17,7 +18,8 @@ import {AuthServiceService} from "../../service/auth-service.service";
     ButtonModule,
     CommonModule,
     AvatarModule,
-    MenubarModule
+    MenubarModule,
+    CardModule
   ],
   providers:[MessageService],
   templateUrl: './home-adm.component.html',
@@ -25,6 +27,15 @@ import {AuthServiceService} from "../../service/auth-service.service";
 })
 export class HomeAdmComponent implements OnInit{
   items: MenuItem[] | undefined;
+  showCard: boolean = false;
+  cardHeader: string = '';
+  activeCard: 'userData' | 'about' | 'phone' | 'location' = 'about';
+  idUsuario: number = Number(localStorage.getItem('userId')) || 0;
+  nomeUsuario: string = localStorage.getItem('fullName') || '';
+  endereco: string = localStorage.getItem('endereço') || '';
+  latitude: string = localStorage.getItem('latitude') || '';
+  longitude: string = localStorage.getItem('longitude') || '';
+  roles: string = localStorage.getItem('roles') || '';
 
   constructor(private _router: Router, private _service: AuthServiceService, private messageService: MessageService) {
   }
@@ -37,7 +48,8 @@ export class HomeAdmComponent implements OnInit{
       },
       {
         label: 'Meus Dados',
-        icon: 'pi pi-user-edit'
+        icon: 'pi pi-user-edit',
+        command: () => this.showAboutUser()
       },
       {
         label: 'Pedidos',
@@ -56,12 +68,12 @@ export class HomeAdmComponent implements OnInit{
           {
             label: 'Lista de Entregas',
             icon: 'pi pi-clipboard',
-            command: () => this.avaliationDelivery()
+            command: () => this.listDelivery()
           },
           {
             label: 'Avaliação de Pedidos',
             icon: 'pi pi-clipboard',
-            command: () => this.avaliationOrder()
+            command: () => this.avaliationDelivery()
           }
         ]
       },
@@ -92,15 +104,18 @@ export class HomeAdmComponent implements OnInit{
         items: [
           {
             label: 'Sobre nós',
-            icon: 'pi pi-face-smile'
+            icon: 'pi pi-face-smile',
+            command: () => this.showAboutUs()
           },
           {
             label: 'Nosso Telefone',
-            icon: 'pi pi-phone'
+            icon: 'pi pi-phone',
+            command: () => this.showPhone()
           },
           {
             label: 'Nossa Localização',
-            icon: 'pi pi-warehouse'
+            icon: 'pi pi-warehouse',
+            command: () => this.showLocation()
           }
         ]
       },
@@ -141,6 +156,34 @@ export class HomeAdmComponent implements OnInit{
   }
 
   private avaliationDelivery() {
-    this._router.navigate(['/avaliation-delivery']);
+    this._router.navigate(['/list-avaliation']);
+  }
+
+  private listDelivery() {
+    this._router.navigate(['/list-delivery']);
+  }
+
+  private showAboutUs() {
+    this.showCard = true;
+    this.cardHeader = 'Sobre Nossa Empresa';
+    this.activeCard = 'about';
+  }
+
+  private showPhone() {
+    this.showCard = true;
+    this.cardHeader = 'Contatos';
+    this.activeCard = 'phone';
+  }
+
+  private showLocation() {
+    this.showCard = true;
+    this.cardHeader = 'Onde Estamos';
+    this.activeCard = 'location';
+  }
+
+  private showAboutUser() {
+    this.showCard = true;
+    this.cardHeader = 'Seja Bem Vindo !';
+    this.activeCard = 'userData';
   }
 }

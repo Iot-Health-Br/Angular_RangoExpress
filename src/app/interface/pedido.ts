@@ -5,6 +5,7 @@ export interface Pedido {
     quantidade: number;
     valor: number;
   }[];
+  idPedido: number;
   idUsuario: number;
   nomeUsuario: string;
   endereco: string;
@@ -13,4 +14,5 @@ export interface Pedido {
   totalPedido: number;
   dataPedido: string;
   status: string;
+  tempoEstimadoEntrega: string;
 }
