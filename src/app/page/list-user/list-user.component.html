@@ -1,21 +1,14 @@
 <div class="container">
   <div class="card-flex">
-    <h1>U S U A R I O S</h1>
+    <h1>User Details</h1>
 
-
-    <!-- Loading Spinner -->
-    <!--
     <div *ngIf="loading" class="card flex justify-content-center">
       <p-progressSpinner ariaLabel="loading" />
     </div>
-    -->
 
-
-    <!-- Error Message -->
-    <!--
     <div *ngIf="error" class="error-message">
       <p-message severity="error" [text]="error"></p-message>
-    </div> -->
+    </div>
 
     <div class="card-table" >
       <p-table class="user-table"
@@ -29,9 +22,9 @@
           <tr>
             <th style="width: 4rem"></th>
             <th>ID</th>
-            <th>Usuario</th>
-            <th>Nome</th>
-            <th>Categoria</th>
+            <th>User Name</th>
+            <th>Name</th>
+            <th>Category</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-product>
@@ -40,7 +33,7 @@
               <p-tableRadioButton [value]="product" />
             </td>
             <td>{{product.id}}</td>
-            <td>{{product.username}}</td>
+            <td>{{product.cpf}}</td>
             <td>{{product.nome}}</td>
             <td>{{product.roles}}</td>
           </tr>
@@ -50,8 +43,9 @@
     <div class="button-group">
       <p-toast />
       <p-button label="Alterar" icon="pi pi-check" styleClass="save-button" (onClick)="changeUser()"></p-button>
-      <p-button label="Buscar" icon="pi pi-search" styleClass="search-button" (onClick)="searchUser()"></p-button>
-      <p-button label="Cancelar" icon="pi pi-times" styleClass="cancel-button" (onClick)="clearForm()"></p-button>
+      <p-button label="Search" icon="pi pi-search" styleClass="search-button" (onClick)="searchUser()"></p-button>
+      <p-button label="Cancel" icon="pi pi-times" styleClass="cancel-button" (onClick)="clearForm()"></p-button>
+      <p-button label="Return" icon="pi pi-replay" styleClass="return-button" (onClick)="returnHome()"> </p-button>
     </div>
   </div>
 </div>
