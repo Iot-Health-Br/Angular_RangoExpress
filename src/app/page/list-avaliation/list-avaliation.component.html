@@ -27,7 +27,7 @@
             <th>Itens do Pedido</th>
             <th>Endereço</th>
             <th>Total</th>
-            <th pSortableColumn="Avaliação">Reviews <p-sortIcon field="Avaliação" /></th>
+            <th>Avaliação</th>
           </tr>
         </ng-template>
 
@@ -36,9 +36,8 @@
             <td>
               <p-tableCheckbox [value]="pedido"></p-tableCheckbox>
             </td>
-            <td>{{pedido.id}}</td>
+            <td>{{pedido.idPedido}}</td>
             <td>{{pedido.status}}</td>
-
             <td>{{formatarData(pedido.dataPedido)}}</td>
             <td>{{pedido.nomeUsuario}}</td>
             <td>
@@ -52,7 +51,7 @@
             </td>
             <td>{{pedido.endereco}}</td>
             <td>{{pedido.totalPedido | currency:'BRL'}}</td>
-
+            <td><p-rating [(ngModel)]="pedido.rating" [readonly]="true" [cancel]="false" /></td>
           </tr>
         </ng-template>
 

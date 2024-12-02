@@ -32,6 +32,7 @@ export class HomeAdmComponent implements OnInit{
   activeCard: 'userData' | 'about' | 'phone' | 'location' = 'about';
   idUsuario: number = Number(localStorage.getItem('userId')) || 0;
   nomeUsuario: string = localStorage.getItem('fullName') || '';
+  cpf: string = localStorage.getItem('cpf') || '';
   endereco: string = localStorage.getItem('endereço') || '';
   latitude: string = localStorage.getItem('latitude') || '';
   longitude: string = localStorage.getItem('longitude') || '';

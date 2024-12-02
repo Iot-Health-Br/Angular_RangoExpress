@@ -30,7 +30,7 @@ import {MenubarModule} from "primeng/menubar";
 })
 export class LoginComponent {
   password: string ='';
-  username: string ='';
+  cpf: string ='';
   constructor(private router: Router, private authService: AuthServiceService , private messageService: MessageService) {}
 
   registerUser() {
@@ -38,13 +38,14 @@ export class LoginComponent {
   }
 
   onLogin() {
-    if (this.username && this.password) {
-      console.log("Angular Component:",this.username,this.password);
-      this.authService.login(this.username, this.password).subscribe({
+    if (this.cpf && this.password) {
+      console.log("Angular Component:",this.cpf,this.password);
+      this.authService.login(this.cpf, this.password).subscribe({
         next: (response) => {
           if (response.authenticated) {
             // Salvando os dados no localStorage
             localStorage.setItem('userId', response.userId?.toString() || '');
+            localStorage.setItem('cpf', response.cpf || '');
             localStorage.setItem('fullName', response.fullName || '');
             localStorage.setItem('endereço',response.endereco || '');
             localStorage.setItem('latitude',response.latitude || '');
@@ -53,6 +54,7 @@ export class LoginComponent {
             // Verificando os dados no localStorage
             console.log('userId:', localStorage.getItem('userId'));
             console.log('fullName:', localStorage.getItem('fullName'));
+            console.log('cpf:', localStorage.getItem('cpf'));
             console.log('endereço:', localStorage.getItem('endereço'));
             console.log('latitude:', localStorage.getItem('latitude'));
             console.log('longitude:', localStorage.getItem('longitude'));
@@ -71,7 +73,7 @@ export class LoginComponent {
 
   // Método para limpar os campos do formulário
   clearForm() {
-    this.username = '';
+    this.cpf = '';
     this.password = '';
     this.messageService.add({severity: 'warn', summary: 'Atenção', detail: 'Login Cancelado',life: 10000});
   }
