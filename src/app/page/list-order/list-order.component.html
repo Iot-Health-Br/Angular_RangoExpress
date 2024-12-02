@@ -70,23 +70,23 @@
       </p-table>
     </div>
 
-    <div class="button-group mt-3">
+    <div class="button-group">
       <p-toast></p-toast>
       <p-button
         label="Atualizar Selecionados"
         icon="pi pi-check"
-        styleClass="p-button-success mr-2"
+        styleClass="update-button"
         [disabled]="!selectedPedidos || selectedPedidos.length === 0"
         (onClick)="atualizarPedido()">
       </p-button>
       <p-button
         label="Limpar Seleção"
         icon="pi pi-times"
-        styleClass="p-button-danger"
+        styleClass="clear-button"
         [disabled]="!selectedPedidos || selectedPedidos.length === 0"
         (onClick)="limparSelecao()">
       </p-button>
-      <th> <p-button label="Return" icon="pi pi-replay" styleClass="return-button" (onClick)="returnHome()"> </p-button> </th>
+       <p-button label="Return" icon="pi pi-replay" styleClass="return-button" (onClick)="returnHome()"> </p-button>
     </div>
   </p-panel>
 </div>

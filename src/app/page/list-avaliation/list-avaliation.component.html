@@ -1,5 +1,5 @@
 <div class="card flex justify-content-center">
-  <p-panel header="Lista de Avaliation" [toggleable]="true">
+  <p-panel header="Lista de Avaliação" [toggleable]="true">
     <div class="card">
       <p-table
         [value]="pedidos"
@@ -66,8 +66,8 @@
 
     <div class="button-group mt-3">
       <p-toast></p-toast>
-      <p-button label="Atualizar Selecionados" icon="pi pi-check" styleClass="p-button-success mr-2" [disabled]="!selectedPedidos || selectedPedidos.length === 0" (onClick)="atualizarPedido()"></p-button>
-      <p-button label="Limpar Seleção" icon="pi pi-times" styleClass="p-button-danger" [disabled]="!selectedPedidos || selectedPedidos.length === 0" (onClick)="limparSelecao()"></p-button>
+      <p-button label="Atualizar Selecionados" icon="pi pi-check" styleClass="update-button" [disabled]="!selectedPedidos || selectedPedidos.length === 0" (onClick)="atualizarPedido()"></p-button>
+      <p-button label="Limpar Seleção" icon="pi pi-times" styleClass="clear-button" [disabled]="!selectedPedidos || selectedPedidos.length === 0" (onClick)="limparSelecao()"></p-button>
       <p-button label="Return" icon="pi pi-replay" styleClass="return-button" (onClick)="returnHome()"> </p-button>
     </div>
   </p-panel>

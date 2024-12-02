@@ -1,12 +1,33 @@
 .layout-wrapper {
-  background-image: url('/assets/imagens/Rango Express BackGround.jpeg');
-  background-size: 1350px 550px;
-  background-repeat: no-repeat;
-  background-position: center;
   height: 100vh;
   margin: 0;        /* Remove margens */
   padding: 0;       /* Remove padding */
   overflow: hidden; /* Remove scrollbar */
+  background-image: url('/assets/Rangoo.png');
+  background-size: 50%;
+  background-repeat:no-repeat;
+  background-position: center;
+}
+
+::ng-deep .p-menuitem{
+  background-color: #DE7D38;
+  color: lightgrey;
+  border-radius: 5px;
+  margin: 1px;
+}
+
+::ng-deep .p-menuitem-content{
+  margin: 5px;
+}
+
+::ng-deep .p-submenu-list{
+  background-color:white;
+}
+
+::ng-deep .p-menubar{
+  background-color: darkorange;
+  border-radius: 0px;
+  border-color: darkorange;
 }
 
 /* Adicione também no elemento body e html para garantir */
@@ -21,5 +42,5 @@ body, html {
   width: 500px;           /* Largura fixa do card */
   margin: 0 auto;         /* Centraliza o card */
   border-radius: 15px;    /* Borda arredondada */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Sombra suave */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);  /* Sombra suave */
 }
