@@ -23,6 +23,7 @@
             <th>Cliente</th>
             <th>Itens do Pedido</th>
             <th>Endereço</th>
+            <th>Coordenadas</th>
             <th>Total</th>
             <th>Entrega Estimada</th>
           </tr>
@@ -59,6 +60,7 @@
               </div>
             </td>
             <td>{{pedido.endereco}}</td>
+            <td>{{pedido.latitude + ', ' + pedido.longitude}}</td>
             <td>{{pedido.totalPedido | currency:'BRL'}}</td>
             <td>{{pedido.tempoEstimadoEntrega}}</td>
           </tr>

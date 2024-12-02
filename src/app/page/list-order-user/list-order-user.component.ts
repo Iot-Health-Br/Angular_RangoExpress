@@ -10,6 +10,8 @@ import {ToastModule} from "primeng/toast";
 import {Pedido} from "../../interface/pedido";
 import {Router} from "@angular/router";
 import {PedidoService} from "../../service/pedido.service";
+import {RatingModule} from "primeng/rating";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-list-order-user',
@@ -23,7 +25,9 @@ import {PedidoService} from "../../service/pedido.service";
     PanelModule,
     PrimeTemplate,
     TableModule,
-    ToastModule
+    ToastModule,
+    RatingModule,
+    FormsModule
   ],
   providers: [MessageService, DatePipe],
   templateUrl: './list-order-user.component.html',

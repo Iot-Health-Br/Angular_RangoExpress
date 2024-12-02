@@ -10,6 +10,10 @@ import {ToastModule} from "primeng/toast";
 import {Pedido} from "../../interface/pedido";
 import {PedidoService} from "../../service/pedido.service";
 import {Router} from "@angular/router";
+import {RatingModule} from "primeng/rating";
+import {FormsModule} from "@angular/forms";
+import {TagModule} from "primeng/tag";
+import {Product} from "../../interface/product";
 
 @Component({
   selector: 'app-list-avaliation',
@@ -23,7 +27,10 @@ import {Router} from "@angular/router";
     PanelModule,
     PrimeTemplate,
     TableModule,
-    ToastModule
+    ToastModule,
+    RatingModule,
+    FormsModule,
+    TagModule
   ],
   providers: [MessageService, DatePipe],
   templateUrl: './list-avaliation.component.html',
@@ -32,6 +39,8 @@ import {Router} from "@angular/router";
 export class ListAvaliationComponent implements OnInit{
   pedidos: Pedido[] = [];
   selectedPedidos: Pedido[] = [];
+  product: any;
+  products!: Product[];
 
   constructor(
     private router: Router,
