@@ -1,14 +1,26 @@
-/* list-order.component.css */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza horizontalmente */
+  height: 100vh;
+  padding-top: 5vh; /* Adiciona um espaçamento no topo proporcional ao tamanho da janela */
+  background-image: url('/assets/imagens/Rango Express BackGround.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
 :host ::ng-deep .p-panel {
-  width: 100%;
-  max-width: 1200px;
-  margin: 1rem;
+  align-items: flex-start; /* Alinha no topo verticalmente */
+  height: auto;
+  padding: 0;       /* Remove padding */
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .button-group {
-  display: flex;
+  margin-top: 5px;
   gap: 1rem;
-  margin-top: 1rem;
 }
 
 :host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
@@ -19,13 +31,49 @@
 :host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
   padding: 0.75rem;
   font-weight: 600;
+  background-color: #DE7D38;
+  color: white;
 }
 
 :host ::ng-deep .p-panel .p-panel-header {
-  background: #f8f9fa;
   padding: 1rem;
+  background-color: darkorange;
+  color: white;
 }
 
 :host ::ng-deep .p-button {
   margin-right: 0.5rem;
+}
+
+::ng-deep .save-button {
+  background-color: #4965EA !important; /* Cor de fundo verde */
+  color: white !important; /* Cor do texto */
+  border: none !important; /* Remove a borda */
+}
+
+/* Adiciona efeito de hover para o botão Save */
+::ng-deep .save-button:hover {
+  background-color: #293B7F !important; /* Cor verde mais escura ao passar o mouse */
+}
+
+/* Estilos para o botão Cancel */
+::ng-deep .cancel-button {
+  background-color: #dc3545 !important; /* Cor de fundo vermelha */
+  color: white !important; /* Cor do texto */
+  border: none !important; /* Remove a borda */
+}
+
+/* Adiciona efeito de hover para o botão Cancel */
+::ng-deep .cancel-button:hover {
+  background-color: #c82333 !important; /* Cor vermelha mais escura ao passar o mouse */
+}
+
+::ng-deep .return-button {
+  background-color: #4965EA !important; /* Cor de fundo vermelha */
+  color: white !important; /* Cor do texto */
+  border: none !important; /* Remove a borda */
+}
+/* Adiciona efeito de hover para o botão Return */
+::ng-deep .return-button:hover {
+  background-color: #293B7F !important; /* Cor vermelha mais escura ao passar o mouse */
 }
