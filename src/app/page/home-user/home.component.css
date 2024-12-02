@@ -3,8 +3,8 @@
   margin: 0;        /* Remove margens */
   padding: 0;       /* Remove padding */
   overflow: hidden; /* Remove scrollbar */
-  background-image: url('/assets/Rangoo.png');
-  background-size: 50%;
+  background-image: url('/assets/imagens/Rango Express BackGround 01.png');
+  background-size: cover;
   background-repeat:no-repeat;
   background-position: center;
 }
